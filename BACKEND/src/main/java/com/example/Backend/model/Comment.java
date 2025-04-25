@@ -15,6 +15,8 @@ public class Comment {
     private Date createdAt;
     private Date updatedAt;
 
+
+    //getters & setters
     public String getId() {
         return id;
     }
