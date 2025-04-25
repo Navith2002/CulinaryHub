@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+
+//anotations
 @AllArgsConstructor
 @NoArgsConstructor
 public class Comment {
@@ -14,6 +16,7 @@ public class Comment {
     private String content;
     private Date createdAt;
     private Date updatedAt;
+
 
 
     //getters & setters
