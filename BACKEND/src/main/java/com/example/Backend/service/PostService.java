@@ -63,6 +63,7 @@ public class PostService {
         postRepository.delete(post);
     }
 
+    //Create comments
     public Post addComment(String postId, Comment comment) {
         Post post = getPostById(postId);
         if (post.getComments() == null) {
