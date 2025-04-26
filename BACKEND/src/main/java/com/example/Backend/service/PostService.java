@@ -85,6 +85,7 @@ public class PostService {
         return post;
     }
 
+    //update comments
     public Post updateComment(String postId, String commentId, Comment commentDetails) {
         Post post = getPostById(postId);
         post.getComments().stream()
