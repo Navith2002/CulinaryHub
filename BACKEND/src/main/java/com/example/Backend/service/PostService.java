@@ -98,6 +98,7 @@ public class PostService {
         return postRepository.save(post);
     }
 
+    //delete comments
     public Post deleteComment(String postId, String commentId, String userId) {
         Post post = getPostById(postId);
         boolean isPostOwner = post.getUserId().equals(userId);
