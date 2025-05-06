@@ -185,7 +185,7 @@ export default function LoginPage() {
                 {isSubmitting ? "Signing in..." : "Sign in"}
               </button>
               <p className="text-gray-600">
-                New to TaskHive?{" "}
+                New to CULIHUB?{" "}
                 <Link
                     to="/register"
                     className="text-red-500 hover:text-red-600 font-medium"
