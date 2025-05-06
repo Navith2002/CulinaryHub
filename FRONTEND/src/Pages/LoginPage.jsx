@@ -51,61 +51,36 @@ export default function LoginPage() {
   };
 
   return (
-      <div className="min-h-screen flex flex-col md:flex-row bg-black">
+      <div className="min-h-screen flex flex-col md:flex-row">
         {/* Left side - Brand and Image */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-[#333] opacity-90"></div>
+        <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 relative overflow-hidden" style={{
+          backgroundImage: "url('https://img.freepik.com/free-photo/sandwich-with-cheese-black-bread_140725-5443.jpg?t=st=1746514589~exp=1746518189~hmac=72fb7f84b1b0f0ea4b67b13ab59b7f4c28cf17c1f75f295f5dddd7b31cfef87a&w=826')", // Use your image path here, e.g., '/images/bg.jpg'
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}>
+         
 
           <div className="relative z-10 text-center max-w-md">
-            {/* Logo */}
-            <div className="mb-8 flex justify-center">
-              <svg
-                  width="80"
-                  height="80"
-                  viewBox="0 0 80 80"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                    d="M40 12L69.3 28V60L40 76L10.7 60V28L40 12Z"
-                    fill="#EF4444"
-                    stroke="#111111"
-                    strokeWidth="2"
-                />
-                <path
-                    d="M40 36L54.6 44V60L40 68L25.4 60V44L40 36Z"
-                    fill="#111111"
-                />
-                <path
-                    d="M30 30L35 33V39L30 42L25 39V33L30 30Z"
-                    fill="#FFFFFF"
-                />
-                <path
-                    d="M50 30L55 33V39L50 42L45 39V33L50 30Z"
-                    fill="#FFFFFF"
-                />
-              </svg>
-            </div>
-
-            <h1 className="text-4xl font-extrabold text-white mb-4">
-              CulinaryHub
+            <h1 className="text-5xl font-extrabold text-white mb-4">
+             CULINARUHUB
             </h1>
-            <p className="text-white/70 text-lg mb-8">
-              Connect, collaborate, and conquer your tasks together.
+            <p className="text-white/100 text-lg mb-8">
+            Exploring the world one cuisine at a time....
             </p>
 
             <div className="mt-8 grid grid-cols-3 gap-4">
-              <div className="bg-red-500/20 p-4 rounded-lg text-center">
-                <div className="text-red-500 text-xl font-bold mb-2">10k+</div>
-                <div className="text-white/60 text-sm">Active Users</div>
+              <div className="bg-[#f2f5d0]/50 p-4 rounded-lg text-center">
+                <div className="text-black text-xl font-bold mb-2">10k+</div>
+                <div className="text-black/100 text-sm">World Class Chef</div>
               </div>
-              <div className="bg-red-500/20 p-4 rounded-lg text-center">
-                <div className="text-red-500 text-xl font-bold mb-2">50k+</div>
-                <div className="text-white/60 text-sm">Tasks Completed</div>
+              <div className="bg-[#f2f5d0]/50 p-4 rounded-lg text-center">
+                <div className="text-blacktext-xl font-bold mb-2">50k+</div>
+                <div className="text-black/100 text-sm">Best Recipes</div>
               </div>
-              <div className="bg-red-500/20 p-4 rounded-lg text-center">
-                <div className="text-red-500 text-xl font-bold mb-2">99%</div>
-                <div className="text-white/60 text-sm">Satisfaction</div>
+              <div className="bg-[#f2f5d0]/50 p-4 rounded-lg text-center">
+                <div className="text-black text-xl font-bold mb-2">99%</div>
+                <div className="text-black/100 text-sm">Satisfaction</div>
               </div>
             </div>
           </div>
@@ -113,7 +88,7 @@ export default function LoginPage() {
           {/* Background pattern */}
           <div className="absolute inset-0 z-0 opacity-10">
             <div className="absolute inset-0 bg-repeat" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15L30 0z' fill-rule='evenodd' fill='%23ffffff' fill-opacity='0.2'/%3E%3C/svg%3E")`,
+              backgroundImage: `url("https://img.freepik.com/free-photo/sandwich-with-cheese-black-bread_140725-5443.jpg?t=st=1746514589~exp=1746518189~hmac=72fb7f84b1b0f0ea4b67b13ab59b7f4c28cf17c1f75f295f5dddd7b31cfef87a&w=826")`,
               backgroundSize: '60px 60px'
             }}></div>
           </div>
@@ -124,7 +99,7 @@ export default function LoginPage() {
           <div className="w-full max-w-md">
             <div className="mb-8">
               <h2 className="text-3xl font-bold text-black mb-2">
-                Welcome Back
+                Welcome LITTLE CHEF.
               </h2>
             </div>
 
