@@ -63,7 +63,7 @@ export default function LoginPage() {
 
           <div className="relative z-10 text-center max-w-md">
             <h1 className="text-5xl font-extrabold text-white mb-4">
-             CULINARUHUB
+             CULINARY-HUB
             </h1>
             <p className="text-white/100 text-lg mb-8">
             Exploring the world one cuisine at a time....
@@ -95,10 +95,10 @@ export default function LoginPage() {
         </div>
 
         {/* Right side - Login Form */}
-        <div className="w-full md:w-1/2 flex items-center justify-center p-8 bg-white">
+        <div className="w-full md:w-1/2 flex items-center justify-center p-8 bg-black">
           <div className="w-full max-w-md">
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-black mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 Welcome LITTLE CHEF.
               </h2>
             </div>
@@ -107,7 +107,7 @@ export default function LoginPage() {
               <div className="space-y-2">
                 <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-white"
                 >
                   Email address
                 </label>
@@ -122,10 +122,10 @@ export default function LoginPage() {
                   <input
                       id="email"
                       type="email"
-                      placeholder="you@example.com"
-                      className={`w-full pl-10 h-12 px-4 bg-gray-900 border ${
+                      placeholder="Chef@gmail.com"
+                      className={`w-full pl-10 h-12 px-4 bg-black border ${
                           errors.email ? "border-red-500" : "border-gray-700"
-                      } rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-white`}
+                      } rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-white placeholder-white/50`}
                       {...register("email", {
                         required: "Email is required",
                         pattern: {
@@ -145,7 +145,7 @@ export default function LoginPage() {
               <div className="space-y-2">
                 <label
                     htmlFor="password"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-white"
                 >
                   Password
                 </label>
@@ -162,7 +162,7 @@ export default function LoginPage() {
                       id="password"
                       type="password"
                       placeholder="••••••••"
-                      className={`w-full pl-10 h-12 px-4 bg-gray-900 border ${
+                      className={`w-full pl-10 h-12 px-4 bg-black border ${
                           errors.password ? "border-red-500" : "border-gray-700"
                       } rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-white`}
                       {...register("password", {
@@ -184,7 +184,7 @@ export default function LoginPage() {
               >
                 {isSubmitting ? "Signing in..." : "Sign in"}
               </button>
-              <p className="text-gray-600">
+              <p className="text-white">
                 New to CULIHUB?{" "}
                 <Link
                     to="/register"
@@ -201,7 +201,7 @@ export default function LoginPage() {
                   <div className="w-full border-t border-gray-200"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">
+                <span className="px-2 bg-black text-gray-500">
                   Or continue with
                 </span>
                 </div>
@@ -211,7 +211,7 @@ export default function LoginPage() {
                 <button
                     type="button"
                     onClick={handleGoogleLogin}
-                    className="w-full h-12 bg-gray-900 hover:bg-gray-800 text-white rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
+                    className="w-full h-12 bg-gray-800 hover:bg-gray-800 text-white rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
                 >
                   <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24">
                     <path
