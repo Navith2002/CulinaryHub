@@ -172,7 +172,7 @@ const EditPostModal = ({ post, onClose, onPostUpdated, token }) => {
   return (
       <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50">
         <motion.div
-            className="bg-gray-900 rounded-xl shadow-2xl w-full max-w-md m-4 overflow-hidden border border-gray-800"
+            className="bg-black rounded-xl shadow-2xl w-full max-w-md m-4 overflow-hidden border border-gray-800"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
@@ -193,7 +193,7 @@ const EditPostModal = ({ post, onClose, onPostUpdated, token }) => {
             <textarea
                 className={`w-full p-3 rounded-lg border ${
                     errors.description ? "border-red-500" : "border-gray-700"
-                } bg-gray-800 text-white placeholder-gray-400 focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none`}
+                } bg-black text-white placeholder-gray-400 focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none`}
                 placeholder="Share your skills or what you're learning..."
                 rows="4"
                 {...register("description", {
@@ -209,7 +209,7 @@ const EditPostModal = ({ post, onClose, onPostUpdated, token }) => {
             </div>
 
             {/* Media Section */}
-            <div className="mb-4 p-4 bg-gray-800 rounded-lg border border-gray-700">
+            <div className="mb-4 p-4 bg-black rounded-lg border border-gray-700">
               <h4 className="font-medium text-white mb-3 flex items-center">
                 <Upload size={16} className="mr-2 text-yellow-400" />
                 Media

@@ -55,12 +55,22 @@ const MainLayout = ({ children, activeTab }) => {
   }, [currentUser]);
 
   return (
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-black text-white relative overflow-hidden">
+        {/* Background image and overlay (fixed) */}
+        <div className="fixed inset-0 w-full h-full z-0">
+          <img
+            src="https://img.freepik.com/free-photo/spices-tomatoes-near-spaghetti-garlic_23-2147849739.jpg?t=st=1746542655~exp=1746546255~hmac=7ec12f8c38f7af341412612c9c2c54bb637ae8a08af552e49cf4e32a3f467d95&w=1380"
+            alt="Background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black opacity-60"></div>
+        </div>
         {/* Header */}
-        <Header activeTab={activeTab} />
-
+        <div className="relative z-10">
+          <Header activeTab={activeTab} />
+        </div>
         {/* Main content with side columns */}
-        <div className="pt-20 pb-10 px-4">
+        <div className="relative z-10 pt-20 pb-10 px-4">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Left Sidebar */}
             <motion.div
