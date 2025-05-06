@@ -71,85 +71,53 @@ export default function RegisterPage() {
   };
 
   return (
-      <div className="min-h-screen flex flex-col md:flex-row bg-black">
-        {/* Left side - Branding */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-[#333] opacity-90"></div>
+    <div className="min-h-screen flex flex-col md:flex-row">
+    {/* Left side - Brand and Image */}
+    <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 relative overflow-hidden" style={{
+      backgroundImage: "url('https://img.freepik.com/free-photo/sandwich-with-cheese-black-bread_140725-5443.jpg?t=st=1746514589~exp=1746518189~hmac=72fb7f84b1b0f0ea4b67b13ab59b7f4c28cf17c1f75f295f5dddd7b31cfef87a&w=826')", // Use your image path here, e.g., '/images/bg.jpg'
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+    }}>
+     
 
-          <div className="relative z-10 text-center max-w-md">
-            {/* Logo */}
-            <div className="mb-8 flex justify-center">
-              <svg
-                  width="80"
-                  height="80"
-                  viewBox="0 0 80 80"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                    d="M40 12L69.3 28V60L40 76L10.7 60V28L40 12Z"
-                    fill="#EF4444"
-                    stroke="#111111"
-                    strokeWidth="2"
-                />
-                <path
-                    d="M40 36L54.6 44V60L40 68L25.4 60V44L40 36Z"
-                    fill="#111111"
-                />
-                <path
-                    d="M30 30L35 33V39L30 42L25 39V33L30 30Z"
-                    fill="#FFFFFF"
-                />
-                <path
-                    d="M50 30L55 33V39L50 42L45 39V33L50 30Z"
-                    fill="#FFFFFF"
-                />
-              </svg>
-            </div>
+      <div className="relative z-10 text-center max-w-md">
+        <h1 className="text-5xl font-extrabold text-white mb-4">
+         CULINARY-HUB
+        </h1>
+        <p className="text-white/100 text-lg mb-8">
+        Exploring the world one cuisine at a time....
+        </p>
 
-            <h1 className="text-4xl font-extrabold text-white mb-4">
-              Join TaskHive Today
-            </h1>
-            <p className="text-white/70 text-lg mb-8">
-              Connect with friends, organize projects, and achieve more together.
-            </p>
-
-            {/* Testimonial */}
-            <div className="mt-8 bg-white/10 p-6 rounded-lg backdrop-blur-sm">
-              <div className="flex flex-col items-center">
-                <div className="relative mb-4">
-                  <div className="w-16 h-16 rounded-full bg-yellow-400/30 flex items-center justify-center">
-                    <span className="text-2xl text-yellow-400">JD</span>
-                  </div>
-                  <div className="absolute -bottom-1 -right-1 bg-yellow-500 text-black rounded-full p-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </div>
-                </div>
-                <p className="text-white/90 italic mb-4">
-                  "TaskHive completely transformed how our team collaborates. The interface is intuitive and the features are exactly what we needed!"
-                </p>
-                <p className="text-yellow-400 font-semibold">Jane Doe</p>
-                <p className="text-white/50 text-sm">Product Manager, CreativeTech</p>
-              </div>
-            </div>
+        <div className="mt-8 grid grid-cols-3 gap-4">
+          <div className="bg-[#f2f5d0]/50 p-4 rounded-lg text-center">
+            <div className="text-black text-xl font-bold mb-2">10k+</div>
+            <div className="text-black/100 text-sm">World Class Chef</div>
           </div>
-
-          {/* Background pattern */}
-          <div className="absolute inset-0 z-0 opacity-10">
-            <div className="absolute inset-0 bg-repeat" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15L30 0z' fill-rule='evenodd' fill='%23ffffff' fill-opacity='0.2'/%3E%3C/svg%3E")`,
-              backgroundSize: '60px 60px'
-            }}></div>
+          <div className="bg-[#f2f5d0]/50 p-4 rounded-lg text-center">
+            <div className="text-blacktext-xl font-bold mb-2">50k+</div>
+            <div className="text-black/100 text-sm">Best Recipes</div>
+          </div>
+          <div className="bg-[#f2f5d0]/50 p-4 rounded-lg text-center">
+            <div className="text-black text-xl font-bold mb-2">99%</div>
+            <div className="text-black/100 text-sm">Satisfaction</div>
           </div>
         </div>
+      </div>
 
+      {/* Background pattern */}
+      <div className="absolute inset-0 z-0 opacity-10">
+        <div className="absolute inset-0 bg-repeat" style={{
+          backgroundImage: `url("https://img.freepik.com/free-photo/sandwich-with-cheese-black-bread_140725-5443.jpg?t=st=1746514589~exp=1746518189~hmac=72fb7f84b1b0f0ea4b67b13ab59b7f4c28cf17c1f75f295f5dddd7b31cfef87a&w=826")`,
+          backgroundSize: '60px 60px'
+        }}></div>
+      </div>
+    </div>
         {/* Right side - Registration Form */}
-        <div className="w-full md:w-1/2 flex items-center justify-center p-8 bg-white overflow-y-auto">
-          <div className="w-full max-w-md py-8">
-            <div className="mb-6">
-              <h2 className="text-3xl font-bold text-black mb-2">
+        <div className="w-full md:w-1/2 flex items-center justify-center p-8 bg-black overflow-y-auto">
+          <div className="w-full max-w-md py-2">
+            <div className="mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 Create Your Account
               </h2>
 
@@ -160,7 +128,7 @@ export default function RegisterPage() {
                 <div className="space-y-2">
                   <label
                       htmlFor="firstName"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium text-white"
                   >
                     First name
                   </label>
@@ -175,8 +143,8 @@ export default function RegisterPage() {
                     <input
                         id="firstName"
                         type="text"
-                        placeholder="task"
-                        className={`w-full pl-10 h-12 px-4 bg-gray-900 border ${
+                        placeholder="CULI"
+                        className={`w-full pl-10 h-12 px-4 bg-black border ${
                             errors.firstName ? "border-red-500" : "border-gray-700"
                         } rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-white`}
                         {...register("firstName", {
@@ -198,7 +166,7 @@ export default function RegisterPage() {
                 <div className="space-y-2">
                   <label
                       htmlFor="lastName"
-                      className="block text-sm font-medium text-gray-700"
+                      className="block text-sm font-medium text-white"
                   >
                     Last name
                   </label>
@@ -213,8 +181,8 @@ export default function RegisterPage() {
                     <input
                         id="lastName"
                         type="text"
-                        placeholder="hive"
-                        className={`w-full pl-10 h-12 px-4 bg-gray-900 border ${
+                        placeholder="HUB"
+                        className={`w-full pl-10 h-12 px-4 bg-black border ${
                             errors.lastName ? "border-red-500" : "border-gray-700"
                         } rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-white`}
                         {...register("lastName", {
@@ -237,7 +205,7 @@ export default function RegisterPage() {
               <div className="space-y-2">
                 <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-white"
                 >
                   Email address
                 </label>
@@ -252,8 +220,8 @@ export default function RegisterPage() {
                   <input
                       id="email"
                       type="email"
-                      placeholder="you@example.com"
-                      className={`w-full pl-10 h-12 px-4 bg-gray-900 border ${
+                      placeholder="CHEF@gmail.com"
+                      className={`w-full pl-10 h-12 px-4 bg-black border ${
                           errors.email ? "border-red-500" : "border-gray-700"
                       } rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-white`}
                       {...register("email", {
@@ -275,7 +243,7 @@ export default function RegisterPage() {
               <div className="space-y-2">
                 <label
                     htmlFor="password"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-white"
                 >
                   Password
                 </label>
@@ -292,7 +260,7 @@ export default function RegisterPage() {
                       id="password"
                       type="password"
                       placeholder="••••••••"
-                      className={`w-full pl-10 h-12 px-4 bg-gray-900 border ${
+                      className={`w-full pl-10 h-12 px-4 bg-black border ${
                           errors.password ? "border-red-500" : "border-gray-700"
                       } rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-white`}
                       {...register("password", {
@@ -317,7 +285,7 @@ export default function RegisterPage() {
               <div className="space-y-2">
                 <label
                     htmlFor="confirmPassword"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-white"
                 >
                   Confirm password
                 </label>
@@ -334,7 +302,7 @@ export default function RegisterPage() {
                       id="confirmPassword"
                       type="password"
                       placeholder="••••••••"
-                      className={`w-full pl-10 h-12 px-4 bg-gray-900 border ${
+                      className={`w-full pl-10 h-12 px-4 bg-black border ${
                           errors.confirmPassword ? "border-red-500" : "border-gray-700"
                       } rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-white`}
                       {...register("confirmPassword", {
@@ -358,7 +326,7 @@ export default function RegisterPage() {
               >
                 {isSubmitting ? "Creating account..." : "Create account"}
               </button>
-              <p className="text-gray-600">
+              <p className="text-white">
                 Already have an account?{" "}
                 <Link
                     to="/login"
@@ -375,16 +343,16 @@ export default function RegisterPage() {
                   <div className="w-full border-t border-gray-200"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">
+                <span className="px-2 bg-black text-gray-500">
                   Or continue with
                 </span>
                 </div>
               </div>
 
-              <div className="mt-6 ">
+              <div className="mt-2 ">
                 <button
                     type="button"
-                    className="w-full h-12 bg-gray-900 hover:bg-gray-800 text-white rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
+                    className="w-full h-12 bg-gray-900 hover:bg-black text-white rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
                     onClick={handleGoogleLogin}
                 >
                   <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24">
@@ -408,22 +376,7 @@ export default function RegisterPage() {
                   Google
                 </button>
               </div>
-            </div>
-
-            <div className="mt-8 grid grid-cols-3 gap-4">
-              <div className="bg-red-500/20 p-4 rounded-lg text-center">
-                <div className="text-red-500 text-xl font-bold mb-2">10k+</div>
-                <div className="text-white/60 text-sm">Active Users</div>
-              </div>
-              <div className="bg-red-500/20 p-4 rounded-lg text-center">
-                <div className="text-red-500 text-xl font-bold mb-2">50k+</div>
-                <div className="text-white/60 text-sm">Tasks Completed</div>
-              </div>
-              <div className="bg-red-500/20 p-4 rounded-lg text-center">
-                <div className="text-red-500 text-xl font-bold mb-2">99%</div>
-                <div className="text-white/60 text-sm">Satisfaction</div>
-              </div>
-            </div>
+                  </div>
           </div>
         </div>
       </div>
