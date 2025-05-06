@@ -98,7 +98,7 @@ const OAuthSuccessPage = () => {
               </div>
 
               <h2 className="text-2xl font-bold text-white mb-2">
-                Connecting to TaskHive
+                Connecting to CULIHUB
               </h2>
               <p className="text-yellow-100/70 mt-2">
                 Please wait while we set up your account...
