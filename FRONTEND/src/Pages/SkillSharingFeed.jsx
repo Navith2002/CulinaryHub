@@ -226,7 +226,7 @@ const SkillSharingFeed = () => {
         <div className="space-y-6">
             {/* Create Post Component */}
             <motion.div
-                className="bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-800"
+                className="bg-black rounded-xl shadow-lg overflow-hidden border border-gray-500"
                 initial={{opacity: 0, y: 20}}
                 animate={{opacity: 1, y: 0}}
                 transition={{duration: 0.3}}
@@ -238,7 +238,7 @@ const SkillSharingFeed = () => {
 
             {/* Filter Controls */}
             <motion.div
-                className="bg-gray-900 rounded-xl p-2 flex justify-between items-center shadow-lg border border-gray-800"
+                className="bg-black rounded-xl p-2 flex justify-between items-center shadow-lg border border-gray-500"
                 initial={{opacity: 0, y: 20}}
                 animate={{opacity: 1, y: 0}}
                 transition={{duration: 0.3, delay: 0.1}}
@@ -250,7 +250,7 @@ const SkillSharingFeed = () => {
                     <span className="text-gray-300 font-medium hidden sm:inline">Filter:</span>
                 </div>
 
-                <div className="flex bg-gray-800 rounded-lg p-1">
+                <div className="flex bg-[#041409] rounded-lg p-1">
                     <button
                         disabled={loading}
                         onClick={() => {
@@ -258,7 +258,7 @@ const SkillSharingFeed = () => {
                         }}
                         className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer ${
                             filterOption === 'latest'
-                                ? 'bg-black text-yellow-400'
+                                ? 'bg-black text-yellow-400 border border-yellow'
                                 : 'text-gray-400 hover:text-white'
                         } ${loading ? 'cursor-not-allowed' : 'cursor-pointer'}`}
                     >
@@ -271,7 +271,7 @@ const SkillSharingFeed = () => {
                         onClick={() => setFilterOption('trending')}
                         className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm transition-colors ${
                             filterOption === 'trending'
-                                ? 'bg-black text-yellow-400'
+                                ? 'bg-black text-yellow-400 border border-yellow'
                                 : 'text-gray-400 hover:text-white'
                         } ${loading ? 'cursor-not-allowed' : 'cursor-pointer'}`}
                     >
@@ -284,7 +284,7 @@ const SkillSharingFeed = () => {
                         onClick={() => setFilterOption('popular')}
                         className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer ${
                             filterOption === 'popular'
-                                ? 'bg-black text-yellow-400'
+                                ? 'bg-black text-yellow-400 border border-yellow'
                                 : 'text-gray-400 hover:text-white'
                         } ${loading ? 'cursor-not-allowed' : 'cursor-pointer'}`}
                     >
@@ -324,7 +324,7 @@ const SkillSharingFeed = () => {
                 </div>
             ) : posts.length === 0 ? (
                 <motion.div
-                    className="bg-gray-900 rounded-xl p-8 text-center shadow-lg border border-gray-800"
+                    className="bg-[#041409] rounded-xl p-8 text-center shadow-lg border border-gray-500"
                     initial={{opacity: 0, y: 20}}
                     animate={{opacity: 1, y: 0}}
                     transition={{duration: 0.5, delay: 0.2}}

@@ -51,61 +51,36 @@ export default function LoginPage() {
   };
 
   return (
-      <div className="min-h-screen flex flex-col md:flex-row bg-black">
+      <div className="min-h-screen flex flex-col md:flex-row">
         {/* Left side - Brand and Image */}
-        <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-[#333] opacity-90"></div>
+        <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-8 relative overflow-hidden" style={{
+          backgroundImage: "url('https://img.freepik.com/free-photo/sandwich-with-cheese-black-bread_140725-5443.jpg?t=st=1746514589~exp=1746518189~hmac=72fb7f84b1b0f0ea4b67b13ab59b7f4c28cf17c1f75f295f5dddd7b31cfef87a&w=826')", // Use your image path here, e.g., '/images/bg.jpg'
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}>
+         
 
           <div className="relative z-10 text-center max-w-md">
-            {/* Logo */}
-            <div className="mb-8 flex justify-center">
-              <svg
-                  width="80"
-                  height="80"
-                  viewBox="0 0 80 80"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                    d="M40 12L69.3 28V60L40 76L10.7 60V28L40 12Z"
-                    fill="#EF4444"
-                    stroke="#111111"
-                    strokeWidth="2"
-                />
-                <path
-                    d="M40 36L54.6 44V60L40 68L25.4 60V44L40 36Z"
-                    fill="#111111"
-                />
-                <path
-                    d="M30 30L35 33V39L30 42L25 39V33L30 30Z"
-                    fill="#FFFFFF"
-                />
-                <path
-                    d="M50 30L55 33V39L50 42L45 39V33L50 30Z"
-                    fill="#FFFFFF"
-                />
-              </svg>
-            </div>
-
-            <h1 className="text-4xl font-extrabold text-white mb-4">
-              CulinaryHub
+            <h1 className="text-5xl font-extrabold text-white mb-4">
+             CULINARY-HUB
             </h1>
-            <p className="text-white/70 text-lg mb-8">
-              Connect, collaborate, and conquer your tasks together.
+            <p className="text-white/100 text-lg mb-8">
+            Exploring the world one cuisine at a time....
             </p>
 
             <div className="mt-8 grid grid-cols-3 gap-4">
-              <div className="bg-red-500/20 p-4 rounded-lg text-center">
-                <div className="text-red-500 text-xl font-bold mb-2">10k+</div>
-                <div className="text-white/60 text-sm">Active Users</div>
+              <div className="bg-[#f2f5d0]/50 p-4 rounded-lg text-center">
+                <div className="text-black text-xl font-bold mb-2">10k+</div>
+                <div className="text-black/100 text-sm">World Class Chef</div>
               </div>
-              <div className="bg-red-500/20 p-4 rounded-lg text-center">
-                <div className="text-red-500 text-xl font-bold mb-2">50k+</div>
-                <div className="text-white/60 text-sm">Tasks Completed</div>
+              <div className="bg-[#f2f5d0]/50 p-4 rounded-lg text-center">
+                <div className="text-blacktext-xl font-bold mb-2">50k+</div>
+                <div className="text-black/100 text-sm">Best Recipes</div>
               </div>
-              <div className="bg-red-500/20 p-4 rounded-lg text-center">
-                <div className="text-red-500 text-xl font-bold mb-2">99%</div>
-                <div className="text-white/60 text-sm">Satisfaction</div>
+              <div className="bg-[#f2f5d0]/50 p-4 rounded-lg text-center">
+                <div className="text-black text-xl font-bold mb-2">99%</div>
+                <div className="text-black/100 text-sm">Satisfaction</div>
               </div>
             </div>
           </div>
@@ -113,18 +88,18 @@ export default function LoginPage() {
           {/* Background pattern */}
           <div className="absolute inset-0 z-0 opacity-10">
             <div className="absolute inset-0 bg-repeat" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15L30 0z' fill-rule='evenodd' fill='%23ffffff' fill-opacity='0.2'/%3E%3C/svg%3E")`,
+              backgroundImage: `url("https://img.freepik.com/free-photo/sandwich-with-cheese-black-bread_140725-5443.jpg?t=st=1746514589~exp=1746518189~hmac=72fb7f84b1b0f0ea4b67b13ab59b7f4c28cf17c1f75f295f5dddd7b31cfef87a&w=826")`,
               backgroundSize: '60px 60px'
             }}></div>
           </div>
         </div>
 
         {/* Right side - Login Form */}
-        <div className="w-full md:w-1/2 flex items-center justify-center p-8 bg-white">
+        <div className="w-full md:w-1/2 flex items-center justify-center p-8 bg-black">
           <div className="w-full max-w-md">
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-black mb-2">
-                Welcome Back
+              <h2 className="text-3xl font-bold text-white mb-2">
+                Welcome LITTLE CHEF.
               </h2>
             </div>
 
@@ -132,7 +107,7 @@ export default function LoginPage() {
               <div className="space-y-2">
                 <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-white"
                 >
                   Email address
                 </label>
@@ -147,10 +122,10 @@ export default function LoginPage() {
                   <input
                       id="email"
                       type="email"
-                      placeholder="you@example.com"
-                      className={`w-full pl-10 h-12 px-4 bg-gray-900 border ${
+                      placeholder="Chef@gmail.com"
+                      className={`w-full pl-10 h-12 px-4 bg-black border ${
                           errors.email ? "border-red-500" : "border-gray-700"
-                      } rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-white`}
+                      } rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-white placeholder-white/50`}
                       {...register("email", {
                         required: "Email is required",
                         pattern: {
@@ -170,7 +145,7 @@ export default function LoginPage() {
               <div className="space-y-2">
                 <label
                     htmlFor="password"
-                    className="block text-sm font-medium text-gray-700"
+                    className="block text-sm font-medium text-white"
                 >
                   Password
                 </label>
@@ -187,7 +162,7 @@ export default function LoginPage() {
                       id="password"
                       type="password"
                       placeholder="••••••••"
-                      className={`w-full pl-10 h-12 px-4 bg-gray-900 border ${
+                      className={`w-full pl-10 h-12 px-4 bg-black border ${
                           errors.password ? "border-red-500" : "border-gray-700"
                       } rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-colors text-white`}
                       {...register("password", {
@@ -209,8 +184,8 @@ export default function LoginPage() {
               >
                 {isSubmitting ? "Signing in..." : "Sign in"}
               </button>
-              <p className="text-gray-600">
-                New to TaskHive?{" "}
+              <p className="text-white">
+                New to CULIHUB?{" "}
                 <Link
                     to="/register"
                     className="text-red-500 hover:text-red-600 font-medium"
@@ -226,7 +201,7 @@ export default function LoginPage() {
                   <div className="w-full border-t border-gray-200"></div>
                 </div>
                 <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">
+                <span className="px-2 bg-black text-gray-500">
                   Or continue with
                 </span>
                 </div>
@@ -236,7 +211,7 @@ export default function LoginPage() {
                 <button
                     type="button"
                     onClick={handleGoogleLogin}
-                    className="w-full h-12 bg-gray-900 hover:bg-gray-800 text-white rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
+                    className="w-full h-12 bg-gray-800 hover:bg-gray-800 text-white rounded-lg font-medium transition-colors flex items-center justify-center space-x-2"
                 >
                   <svg className="h-5 w-5 mr-2" viewBox="0 0 24 24">
                     <path

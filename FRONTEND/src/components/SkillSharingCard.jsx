@@ -79,7 +79,7 @@ const SkillSharingCard = ({
 
   return (
       <motion.div
-          className="bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-800"
+          className="bg-black rounded-xl shadow-lg overflow-hidden border border-gray-500"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -89,7 +89,7 @@ const SkillSharingCard = ({
           }}
       >
         {/* Post Header with User Info and Action Buttons */}
-        <div className="p-4 flex items-center justify-between border-b border-gray-800">
+        <div className="p-4 flex items-center justify-between border-b border-gray-500">
           <div
               className="flex items-center space-x-3 cursor-pointer"
               onClick={handleUserClick}

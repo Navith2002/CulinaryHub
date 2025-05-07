@@ -156,191 +156,99 @@ const Header = () => {
   ];
 
   return (
-      <header className="fixed top-0 left-0 w-full z-50 bg-black shadow-lg">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-center h-16 px-4">
-            {/* Logo and Mobile Menu */}
-            <div className="flex items-center">
-              <button
-                  className="mr-3 sm:hidden text-white"
-                  onClick={() => setMenuOpen(!menuOpen)}
-              >
-                {menuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-
-              <motion.div
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5 }}
-                  className="flex items-center cursor-pointer"
-              >
-
-
-                <h1 className="text-xl font-bold text-white">
+      <header className="relative w-full z-50 bg-white shadow-lg  ">
+        <div className="relative w-full">
+          {/* Header Image Full Width */}
+          <img src="https://img.freepik.com/free-photo/vegetables-with-salt-corn-cob_1220-688.jpg?t=st=1746524894~exp=1746528494~hmac=5347abec2a2c06e82f15a2fd4a229ef31e112a8e00232f888b2702a0c012c6fd&w=1380" alt="Header" className="h-52 w-screen object-cover shadow-lg mx-auto rounded-none" />
+          {/* Overlayed Logo and Profile Icon */}
+          <div className="absolute top-0 left-0 w-full flex justify-between items-center px-8 pt-4 rounded-2xl ">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex items-center cursor-pointer"
+            >
+              <div className="mt-15 ml-15">
+                <h1 className="text-4xl font-bold text-white drop-shadow-lg">
                   Cullinary<span className="text-yellow-400">Hub</span>
                 </h1>
-              </motion.div>
-            </div>
-
-            {/* Navigation - Desktop */}
-            <div className="hidden md:flex items-center space-x-1">
-              {tabItems.map((tab) => (
-                  <motion.button
-                      key={tab.id}
-                      onClick={() => handleTabChange(tab.id)}
-                      className={`p-2 rounded-lg transition-all duration-200 relative cursor-pointer ${
-                          activeTab === tab.id
-                              ? "text-yellow-400"
-                              : "text-gray-400 hover:text-white"
-                      }`}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                  >
-                    <span className="flex justify-center align-cener">{tab.icon} &nbsp; {tab.name}</span>
-                    {activeTab === tab.id && (
-                        <motion.div
-                            className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400"
-                            layoutId="activeTabIndicator"
-                        />
-                    )}
-                  </motion.button>
-              ))}
-            </div>
-
-            {/* User Controls */}
-            <div className="flex items-center space-x-2">
-
-              {/* Notifications */}
-              {/* User Avatar and Menu */}
-              <div className="relative" ref={profileDropdownRef}>
-                <motion.button
-                    className="flex items-center space-x-1 rounded-full hover:bg-gray-800 transition-colors p-1 cursor-pointer"
-                    onClick={() => setShowProfileDropdown(!showProfileDropdown)}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                >
-                  <div className="h-8 w-8 rounded-full overflow-hidden border-2 border-yellow-400 cursor-pointer">
-                    <UserAvatar
-                        src={currentUser?.profileImage}
-                        alt={currentUser?.name}
-                        name={currentUser?.name}
-                        size="h-8 w-8"
-                    />
-                  </div>
-                </motion.button>
-
-                <AnimatePresence>
-                  {showProfileDropdown && (
-                      <motion.div
-                          className="absolute right-0 mt-2 w-56 bg-black rounded-lg shadow-lg overflow-hidden z-50 border border-gray-800"
-                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                          transition={{ duration: 0.2 }}
-                      >
-                        <div className="p-4 border-b border-gray-800">
-                          <p className="font-medium text-white truncate">
-                            {currentUser?.name || "User"}
-                          </p>
-                          <p className="text-sm text-gray-400 truncate">
-                            {currentUser?.email || ""}
-                          </p>
-                        </div>
-                        <div className="py-1">
-                          <motion.button
-                              className="flex items-center space-x-2 w-full px-4 py-2 text-left text-gray-300 hover:bg-gray-900 hover:text-yellow-400 transition-colors cursor-pointer"
-                              onClick={navigateToProfile}
-                              whileHover={{ x: 5 }}
-                          >
-                            <User className="h-4 w-4" />
-                            <span>Profile</span>
-                          </motion.button>
-                          <div className="border-t border-gray-800 my-1"></div>
-                          <motion.button
-                              className="flex items-center space-x-2 w-full px-4 py-2 text-left text-gray-300 hover:bg-gray-900 hover:text-red-400 transition-colors cursor-pointer"
-                              onClick={handleLogout}
-                              whileHover={{ x: 5 }}
-                          >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="h-4 w-4"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                              <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
-                              />
-                            </svg>
-                            <span>Logout</span>
-                          </motion.button>
-                        </div>
-                      </motion.div>
-                  )}
-                </AnimatePresence>
+                <p className="text-white/50 text-base mb-8 mt-5">
+                Pairing flavors, creating memories | Food aficionado
+                </p>
               </div>
+
+              
+            </motion.div>
+            <div className="relative" ref={profileDropdownRef}>
+              <motion.button
+                className="flex items-center space-x-1 rounded-full hover:bg-gray-800 transition-colors p-1 cursor-pointer"
+                onClick={() => setShowProfileDropdown(!showProfileDropdown)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <div className="h-15 w-15 rounded-full overflow-hidden border-2 border-red-700 cursor-pointer ">
+                  <UserAvatar
+                    src={currentUser?.profileImage}
+                    alt={currentUser?.name}
+                    name={currentUser?.name}
+                    size="h-15 w-15"
+                  />
+                </div>
+              </motion.button>
+              <AnimatePresence>
+                {showProfileDropdown && (
+                    <motion.div
+                        className="absolute right-0 mt-2 w-56 rounded-lg shadow-lg overflow-hidden z-50 border border-gray-800"
+                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                        transition={{ duration: 0.2 }}
+                    >
+                      <div className="p-4 border-b border-gray-800">
+                        <p className="font-medium text-white truncate">
+                          {currentUser?.name || "User"}
+                        </p>
+                        <p className="text-sm text-gray-400 truncate">
+                          {currentUser?.email || ""}
+                        </p>
+                      </div>
+                      <div className="py-1">
+                        <motion.button
+                          className="flex items-center space-x-2 w-full px-4 py-2 text-left text-gray-300 hover:bg-gray-900 hover:text-yellow-400 transition-colors cursor-pointer"
+                          onClick={navigateToProfile}
+                          whileHover={{ x: 5 }}
+                        >
+                          <User className="h-4 w-4" />
+                          <span>Profile</span>
+                        </motion.button>
+                        <div className="border-t border-gray-800 my-1"></div>
+                        <motion.button
+                          className="flex items-center space-x-2 w-full px-4 py-2 text-left text-gray-300 hover:bg-gray-900 hover:text-red-400 transition-colors cursor-pointer"
+                          onClick={handleLogout}
+                          whileHover={{ x: 5 }}
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            className="h-4 w-4"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+                            />
+                          </svg>
+                          <span>Logout</span>
+                        </motion.button>
+                      </div>
+                    </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
-
-          {/* Mobile Navigation Menu */}
-          <AnimatePresence>
-            {menuOpen && (
-                <motion.div
-                    className="sm:hidden py-2 bg-gray-900"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                >
-                  {/* Mobile Search */}
-                  <div className="px-4 pb-2 pt-1">
-                    <form onSubmit={handleSearch} className="relative">
-                      <input
-                          type="text"
-                          placeholder="Search..."
-                          className="w-full py-2 pl-4 pr-10 rounded-full bg-gray-800 border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none"
-                          value={searchQuery}
-                          onChange={(e) => setSearchQuery(e.target.value)}
-                      />
-                      <button
-                          type="submit"
-                          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-yellow-400"
-                      >
-                        <Search size={18} />
-                      </button>
-                    </form>
-                  </div>
-
-                  {/* Mobile Tabs */}
-                  <div className="flex flex-col space-y-1 px-2">
-                    {tabItems.map((tab, index) => (
-                        <motion.button
-                            key={tab.id}
-                            onClick={() => {
-                              handleTabChange(tab.id);
-                              setMenuOpen(false);
-                            }}
-                            className={`p-3 rounded-lg transition-all duration-200 flex items-center space-x-3
-                    ${
-                                activeTab === tab.id
-                                    ? "bg-gray-800 text-yellow-400"
-                                    : "text-gray-300 hover:bg-gray-800"
-                            }`}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                        >
-                          <span>{tab.icon}</span>
-                          <span className="font-medium">{tab.name}</span>
-                        </motion.button>
-                    ))}
-                  </div>
-                </motion.div>
-            )}
-          </AnimatePresence>
         </div>
       </header>
   );
