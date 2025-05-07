@@ -15,6 +15,7 @@ import {
   removeLike,
   addComment,
 } from "../api/learningProgressAPI";
+import { getLearningPlansByUserId } from "../api/learningPlanAPI";
 import {
   Award,
   BookOpen,
@@ -26,7 +27,8 @@ import {
   Edit,
   X,
   Filter,
-  Plus
+  Plus,
+  Book
 } from "lucide-react";
 
 // Status options
@@ -90,6 +92,8 @@ const LearningProgressPage = () => {
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [filterType, setFilterType] = useState("all");
   const { modalState, openModal, closeModal } = useConfirmModal();
+  const [userLearningPlans, setUserLearningPlans] = useState([]);
+  const [selectedLearningPlan, setSelectedLearningPlan] = useState("");
 
   const {
     register,
@@ -125,6 +129,24 @@ const LearningProgressPage = () => {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    const fetchUserPlans = async () => {
+      if (!currentUser?.id) return;
+      
+      try {
+        const response = await getLearningPlansByUserId(
+          currentUser.id, 
+          currentUser.token
+        );
+        setUserLearningPlans(response.data || []);
+      } catch (error) {
+        console.error("Error fetching learning plans:", error);
+      }
+    };
+    
+    fetchUserPlans();
+  }, [currentUser]);
 
   const handleTemplateChange = (e) => {
     setSelectedTemplate(e.target.value);
@@ -173,6 +195,7 @@ const LearningProgressPage = () => {
         userProfileImage: currentUser.profileImage,
         templateType: selectedTemplate,
         status: selectedStatus,
+        learningPlanId: selectedLearningPlan,
         ...data,
       };
 
@@ -364,14 +387,14 @@ const LearningProgressPage = () => {
       <div className="max-w-2xl mx-auto pb-10">
         {/* Create Progress Button */}
         <motion.div
-            className="bg-gray-900 rounded-xl shadow-lg border border-gray-800 mb-6 overflow-hidden"
+            className="bg-black rounded-xl shadow-lg border border-gray-500 mb-6 overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
         >
           {showCreateForm ? (
               <div>
-                <div className="p-4 border-b border-gray-800 flex justify-between items-center">
+                <div className="p-4 border-b border-gray-500 flex justify-between items-center">
                   <h2 className="text-xl font-bold text-white flex items-center">
                 <span className="text-yellow-400 mr-2">
                   {currentTemplate.icon}
@@ -397,7 +420,7 @@ const LearningProgressPage = () => {
                         <select
                             value={selectedTemplate}
                             onChange={handleTemplateChange}
-                            className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none appearance-none pl-8 pr-4"
+                            className="w-full p-2 bg-black rounded-lg border border-gray-500 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none appearance-none pl-8 pr-4"
                             disabled={isSubmitting}
                         >
                           {TEMPLATES.map((template) => (
@@ -424,7 +447,7 @@ const LearningProgressPage = () => {
                         <select
                             value={selectedStatus}
                             onChange={handleStatusChange}
-                            className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none appearance-none pl-8 pr-4"
+                            className="w-full p-2 bg-black rounded-lg border border-gray-500 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none appearance-none pl-8 pr-4"
                             disabled={isSubmitting}
                         >
                           {STATUS_OPTIONS.map((status) => (
@@ -456,8 +479,8 @@ const LearningProgressPage = () => {
                               type="text"
                               {...register("title", { required: "Title is required" })}
                               placeholder="Give your progress update a clear title"
-                              className={`w-full p-2 bg-gray-800 rounded-lg border ${
-                                  errors.title ? "border-red-500" : "border-gray-700"
+                              className={`w-full p-2 bg-black rounded-lg border ${
+                                  errors.title ? "border-red-500" : "border-gray-500"
                               } text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none`}
                               disabled={isSubmitting}
                           />
@@ -482,8 +505,8 @@ const LearningProgressPage = () => {
                               })}
                               placeholder="Describe what you've learned or accomplished"
                               rows="3"
-                              className={`w-full p-2 bg-gray-800 rounded-lg border ${
-                                  errors.description ? "border-red-500" : "border-gray-700"
+                              className={`w-full p-2 bg-black rounded-lg border ${
+                                  errors.description ? "border-red-500" : "border-gray-500"
                               } text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none`}
                               disabled={isSubmitting}
                           />
@@ -508,8 +531,8 @@ const LearningProgressPage = () => {
                                     : false,
                               })}
                               placeholder="Name of the tutorial you completed"
-                              className={`w-full p-2 bg-gray-800 rounded-lg border ${
-                                  errors.tutorialName ? "border-red-500" : "border-gray-700"
+                              className={`w-full p-2 bg-black rounded-lg border ${
+                                  errors.tutorialName ? "border-red-500" : "border-gray-500"
                               } text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none`}
                               disabled={isSubmitting}
                           />
@@ -534,8 +557,8 @@ const LearningProgressPage = () => {
                                     : false,
                               })}
                               placeholder="Name of your project"
-                              className={`w-full p-2 bg-gray-800 rounded-lg border ${
-                                  errors.projectName ? "border-red-500" : "border-gray-700"
+                              className={`w-full p-2 bg-black rounded-lg border ${
+                                  errors.projectName ? "border-red-500" : "border-gray-500"
                               } text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none`}
                               disabled={isSubmitting}
                           />
@@ -556,7 +579,7 @@ const LearningProgressPage = () => {
                               type="text"
                               {...register("skillsLearned")}
                               placeholder="Skills or technologies (comma-separated)"
-                              className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                              className="w-full p-2 bg-black rounded-lg border border-gray-500 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none"
                               disabled={isSubmitting}
                           />
                           <p className="text-xs text-gray-500 mt-1">Example: JavaScript, React, Node.js</p>
@@ -572,7 +595,7 @@ const LearningProgressPage = () => {
                               {...register("challenges")}
                               placeholder="What challenges did you encounter and how did you overcome them?"
                               rows="2"
-                              className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none"
+                              className="w-full p-2 bg-black rounded-lg border border-gray-500 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none"
                               disabled={isSubmitting}
                           />
                         </div>
@@ -587,18 +610,40 @@ const LearningProgressPage = () => {
                               {...register("nextSteps")}
                               placeholder="What are your next steps or goals?"
                               rows="2"
-                              className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none cursor-pointer"
+                              className="w-full p-2 bg-black rounded-lg border border-gray-500 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none cursor-pointer"
                               disabled={isSubmitting}
                           />
                         </div>
                     )}
                   </div>
 
+                  <div className="mb-4">
+                    <div className="flex items-center mb-2">
+                      <Book size={16} className="text-yellow-400 mr-2" />
+                      <label className="text-sm font-medium text-yellow-400">
+                        Related Learning Plan (Optional)
+                      </label>
+                    </div>
+                    <select
+                      value={selectedLearningPlan}
+                      onChange={(e) => setSelectedLearningPlan(e.target.value)}
+                      className="w-full p-2 bg-black rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none appearance-none"
+                      disabled={isSubmitting}
+                    >
+                      <option value="">None</option>
+                      {userLearningPlans.map(plan => (
+                        <option key={plan.id} value={plan.id}>
+                          {plan.title}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
                   <div className="mt-6 flex justify-end space-x-3">
                     <motion.button
                         type="button"
                         onClick={() => setShowCreateForm(false)}
-                        className="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer"
+                        className="px-4 py-2 bg-black text-gray-300 rounded-lg hover:bg-gray-900 transition-colors cursor-pointer"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
                         disabled={isSubmitting}
@@ -632,7 +677,7 @@ const LearningProgressPage = () => {
 
         {/* Filter Controls */}
         <motion.div
-            className="bg-gray-900 rounded-xl p-2 flex justify-between items-center shadow-lg border border-gray-800 mb-6"
+            className="bg-black rounded-xl p-2 flex justify-between items-center shadow-lg border border-gray-500 mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.1 }}
@@ -644,7 +689,7 @@ const LearningProgressPage = () => {
             <span className="text-gray-300 font-medium hidden sm:inline">Filter:</span>
           </div>
 
-          <div className="flex bg-gray-800 rounded-lg p-1">
+          <div className="flex bg-black rounded-lg p-1">
             <button
                 onClick={() => setFilterType('all')}
                 className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer ${
@@ -724,7 +769,7 @@ const LearningProgressPage = () => {
             </div>
         ) : getFilteredEntries().length === 0 ? (
             <motion.div
-                className="bg-gray-900 rounded-xl p-8 text-center shadow-lg border border-gray-800"
+                className="bg-black rounded-xl p-8 text-center shadow-lg border border-gray-500"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}

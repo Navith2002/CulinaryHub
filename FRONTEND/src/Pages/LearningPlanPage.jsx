@@ -274,14 +274,14 @@ const LearningPlanPage = () => {
       <div className="max-w-2xl mx-auto pb-10">
         {/* Create Learning Plan Button/Form */}
         <motion.div
-            className="bg-gray-900 rounded-xl shadow-lg border border-gray-800 mb-6 overflow-hidden"
+            className="bg-black rounded-xl shadow-lg border border-gray-500 mb-6 overflow-hidden"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
         >
           {showCreateForm ? (
               <div>
-                <div className="p-4 border-b border-gray-800 flex justify-between items-center">
+                <div className="p-4 border-b border-gray-500 flex justify-between items-center">
                   <h2 className="text-xl font-bold text-white flex items-center">
                     <Book size={20} className="text-yellow-400 mr-2" />
                     Share Your Learning Plan
@@ -306,8 +306,8 @@ const LearningPlanPage = () => {
                         type="text"
                         {...register("title", { required: "Title is required" })}
                         placeholder="Give your learning plan a clear title"
-                        className={`w-full p-2 bg-gray-800 rounded-lg border ${
-                            errors.title ? "border-red-500" : "border-gray-700"
+                        className={`w-full p-2 bg-black rounded-lg border ${
+                            errors.title ? "border-red-500" : "border-gray-500"
                         } text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none`}
                         disabled={isSubmitting}
                     />
@@ -328,8 +328,8 @@ const LearningPlanPage = () => {
                         })}
                         placeholder="Describe your learning plan in detail"
                         rows="4"
-                        className={`w-full p-2 bg-gray-800 rounded-lg border ${
-                            errors.description ? "border-red-500" : "border-gray-700"
+                        className={`w-full p-2 bg-black rounded-lg border ${
+                            errors.description ? "border-red-500" : "border-gray-500"
                         } text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none`}
                         disabled={isSubmitting}
                     />
@@ -349,7 +349,7 @@ const LearningPlanPage = () => {
                         type="text"
                         {...register("topics")}
                         placeholder="e.g., JavaScript, React, UI Design"
-                        className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                        className="w-full p-2 bg-black rounded-lg border border-gray-500 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none"
                         disabled={isSubmitting}
                     />
                     <p className="mt-1 text-xs text-gray-500">
@@ -366,7 +366,7 @@ const LearningPlanPage = () => {
                         {...register("resources")}
                         placeholder="e.g., https://example.com/tutorial, Book: JavaScript Basics"
                         rows="3"
-                        className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none"
+                        className="w-full p-2 bg-black rounded-lg border border-gray-500 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none"
                         disabled={isSubmitting}
                     />
                     <p className="mt-1 text-xs text-gray-500">
@@ -378,7 +378,7 @@ const LearningPlanPage = () => {
                     <motion.button
                         type="button"
                         onClick={() => setShowCreateForm(false)}
-                        className="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer"
+                        className="px-4 py-2 bg-black text-gray-300 rounded-lg hover:bg-gray-900 transition-colors cursor-pointer"
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
                         disabled={isSubmitting}
@@ -405,9 +405,9 @@ const LearningPlanPage = () => {
           ) : (
               <button
                   onClick={() => setShowCreateForm(true)}
-                  className="p-4 w-full flex items-center justify-center space-x-2 hover:bg-gray-800 transition-colors group cursor-pointer"
+                  className="p-4 w-full flex items-center justify-center space-x-2 hover:bg-black transition-colors group cursor-pointer"
               >
-                <div className="w-10 h-10 rounded-full bg-gray-800 group-hover:bg-gray-700 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-black group-hover:bg-gray-900 flex items-center justify-center">
                   <Plus className="text-yellow-400" size={20} />
                 </div>
                 <span className="text-white font-medium">Share Your Learning Plan</span>
@@ -417,7 +417,7 @@ const LearningPlanPage = () => {
 
         {/* Filter Controls */}
         <motion.div
-            className="bg-gray-900 rounded-xl p-2 flex justify-between items-center shadow-lg border border-gray-800 mb-6"
+            className="bg-black rounded-xl p-2 flex justify-between items-center shadow-lg border border-gray-500 mb-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.1 }}
@@ -429,7 +429,7 @@ const LearningPlanPage = () => {
             <span className="text-gray-300 font-medium hidden sm:inline">Filter:</span>
           </div>
 
-          <div className="flex bg-gray-800 rounded-lg p-1">
+          <div className="flex bg-black rounded-lg p-1">
             <button
                 onClick={() => setFilterType('all')}
                 className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer ${
@@ -509,7 +509,7 @@ const LearningPlanPage = () => {
             </div>
         ) : getFilteredPlans().length === 0 ? (
             <motion.div
-                className="bg-gray-900 rounded-xl p-8 text-center shadow-lg border border-gray-800"
+                className="bg-black rounded-xl p-8 text-center shadow-lg border border-gray-500"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}

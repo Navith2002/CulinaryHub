@@ -11,15 +11,15 @@ import { Link } from "react-router-dom";
 const STATUS_OPTIONS = {
   not_started: {
     name: "Not Started",
-    color: "bg-gray-800 text-gray-300 border border-gray-700"
+    color: "bg-black text-gray-300 border border-gray-500"
   },
   in_progress: {
     name: "In Progress",
-    color: "bg-yellow-500/20 text-yellow-400 border border-yellow-700/30"
+    color: "bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
   },
   completed: {
     name: "Completed",
-    color: "bg-green-500/20 text-green-400 border border-green-700/30"
+    color: "bg-green-500/20 text-green-400 border border-green-500/30"
   },
 };
 
@@ -70,13 +70,13 @@ const LearningProgressCard = ({
 
   const statusInfo = STATUS_OPTIONS[progress.status] || {
     name: "Status",
-    color: "bg-gray-800 text-gray-300 border border-gray-700",
+    color: "bg-gray-800 text-gray-300 border border-gray-500",
   };
 
   return (
-      <div className="bg-gray-900 rounded-xl shadow-lg border border-gray-800 overflow-hidden">
+      <div className="bg-black rounded-xl shadow-lg border border-gray-500 overflow-hidden">
         {/* Progress Header */}
-        <div className="p-4 flex items-center justify-between border-b border-gray-800">
+        <div className="p-4 flex items-center justify-between border-b border-gray-500">
           <div className="flex items-center space-x-3">
             <UserAvatar
                 src={progress.userProfileImage}
@@ -97,7 +97,7 @@ const LearningProgressCard = ({
           </div>
 
           <div className="flex items-center space-x-2">
-          <span className="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-800 text-yellow-400 border border-gray-700">
+          <span className="inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-medium bg-gray-800 text-yellow-400 border border-gray-500">
             {templateInfo.icon} {templateInfo.name}
           </span>
             <span
@@ -139,7 +139,7 @@ const LearningProgressCard = ({
               <p className="text-gray-300 mb-3">{progress.description}</p>
           )}
 
-          <div className="bg-gray-800/70 rounded-lg p-4 mb-4 space-y-3 border border-gray-700">
+          <div className="bg-black/70 rounded-lg p-4 mb-4 space-y-3 border border-gray-500">
             {progress.tutorialName && (
                 <div className="flex flex-wrap">
                   <span className="text-yellow-400 font-medium w-28">Tutorial:</span>
@@ -161,7 +161,7 @@ const LearningProgressCard = ({
                     {progress.skillsLearned.split(",").map((skill, index) => (
                         <span
                             key={index}
-                            className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-yellow-500/20 text-yellow-400 border border-yellow-700/30"
+                            className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
                         >
                     {skill.trim()}
                   </span>
@@ -190,7 +190,7 @@ const LearningProgressCard = ({
           </div>
 
           {/* Action Buttons */}
-          <div className="flex justify-between items-center mt-2 pb-2 border-b border-gray-800">
+          <div className="flex justify-between items-center mt-2 pb-2 border-b border-gray-500">
             <motion.button
                 className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                     isLikedByUser
@@ -219,7 +219,7 @@ const LearningProgressCard = ({
 
         {/* Comments Section */}
         {showComments && (
-            <div className="p-4 bg-gray-800/50 border-t border-gray-800">
+            <div className="p-4 bg-gray-800/50 border-t border-gray-500">
               {/* Add Comment Form */}
               <CommentForm
                   postId={progress.id}

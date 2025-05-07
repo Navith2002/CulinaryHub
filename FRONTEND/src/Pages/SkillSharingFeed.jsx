@@ -194,7 +194,8 @@ const SkillSharingFeed = () => {
 
         switch (filterOption) {
             case 'trending':
-                // Sort by most likes
+                
+                //sort by most Likes
                 filteredPosts.sort((a, b) =>
                     (b.likes?.length || 0) - (a.likes?.length || 0)
                 );
@@ -207,7 +208,8 @@ const SkillSharingFeed = () => {
                 break;
             case 'latest':
             default:
-                // Sort by most recent
+            
+                // sort by most recent
                 filteredPosts.sort((a, b) =>
                     new Date(b.createdAt) - new Date(a.createdAt)
                 );
