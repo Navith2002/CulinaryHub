@@ -4,7 +4,7 @@ import { Users, Lock, Unlock, UserCheck, UserPlus, UserMinus } from "lucide-reac
 import { joinCommunity, leaveCommunity, isMember } from "../api/communityAPI";
 import toast from "react-hot-toast";
 
-const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
+const CommunityCard = ({ community, currentUser, onJoin, onLeave, joinButtonColor }) => {
   const [isUserMember, setIsUserMember] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -108,7 +108,11 @@ const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
             <button
               onClick={handleJoin}
               disabled={loading}
-              className="flex items-center text-sm bg-blue-50 hover:bg-blue-100 text-blue-600 px-3 py-1.5 rounded-md transition-colors duration-200"
+              className={`flex items-center text-sm px-3 py-1.5 rounded-md transition-colors duration-200 ${
+                joinButtonColor === "green"
+                  ? "bg-green-50 hover:bg-green-100 text-green-600"
+                  : "bg-blue-50 hover:bg-blue-100 text-blue-600"
+              }`}
             >
               <UserPlus className="h-4 w-4 mr-1" />
               Join
