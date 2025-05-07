@@ -100,7 +100,7 @@ const CommunitiesPage = () => {
 
         <button
           onClick={() => setShowCreateModal(true)}
-          className="mt-4 md:mt-0 flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          className="mt-4 md:mt-0 flex items-center px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105"
         >
           <Plus className="h-5 w-5 mr-1" />
           Create Community
@@ -139,30 +139,30 @@ const CommunitiesPage = () => {
             <div className="flex">
               <button
                 onClick={() => setFilter("all")}
-                className={`px-4 py-2 rounded-l-md ${
+                className={`px-4 py-2 rounded-l-md transition-all duration-200 ${
                   filter === "all"
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
+                    ? "bg-green-600 text-white"
+                    : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 }`}
               >
                 All
               </button>
               <button
                 onClick={() => setFilter("my")}
-                className={`px-4 py-2 ${
+                className={`px-4 py-2 transition-all duration-200 ${
                   filter === "my"
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
+                    ? "bg-green-600 text-white"
+                    : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 }`}
               >
                 My Communities
               </button>
               <button
                 onClick={() => setFilter("public")}
-                className={`px-4 py-2 rounded-r-md ${
+                className={`px-4 py-2 rounded-r-md transition-all duration-200 ${
                   filter === "public"
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
+                    ? "bg-green-600 text-white"
+                    : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
                 }`}
               >
                 Public
@@ -174,7 +174,7 @@ const CommunitiesPage = () => {
 
       {loading ? (
         <div className="flex justify-center items-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-600"></div>
         </div>
       ) : filteredCommunities.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -191,7 +191,9 @@ const CommunitiesPage = () => {
         </div>
       ) : (
         <div className="text-center py-12">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">No communities found</h3>
+          <h3 className="text-xl font-semibold text
+
+-gray-800 dark:text-white mb-2">No communities found</h3>
           <p className="text-gray-600 dark:text-gray-400">
             {filter === "my"
               ? "You haven't joined any communities yet."
@@ -200,7 +202,7 @@ const CommunitiesPage = () => {
           {filter === "my" && (
             <button
               onClick={() => setFilter("all")}
-              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className="mt-4 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-105"
             >
               Explore Communities
             </button>
