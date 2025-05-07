@@ -157,9 +157,9 @@ const Header = () => {
 
   return (
       <header className="relative w-full z-50 bg-white shadow-lg  ">
-        <div className="relative w-full  z-50" >
+        <div className="relative w-full">
           {/* Header Image Full Width */}
-          <img src="https://img.freepik.com/free-photo/vegetables-with-salt-corn-cob_1220-688.jpg?t=st=1746524894~exp=1746528494~hmac=5347abec2a2c06e82f15a2fd4a229ef31e112a8e00232f888b2702a0c012c6fd&w=1380" alt="Header" className="h-60 w-screen object-cover shadow-lg mx-auto rounded-none" />
+          <img src="https://img.freepik.com/free-photo/vegetables-with-salt-corn-cob_1220-688.jpg?t=st=1746524894~exp=1746528494~hmac=5347abec2a2c06e82f15a2fd4a229ef31e112a8e00232f888b2702a0c012c6fd&w=1380" alt="Header" className="h-52 w-screen object-cover shadow-lg mx-auto rounded-none" />
           {/* Overlayed Logo and Profile Icon */}
           <div className="absolute top-0 left-0 w-full flex justify-between items-center px-8 pt-4 rounded-2xl ">
             <motion.div

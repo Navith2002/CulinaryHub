@@ -221,7 +221,7 @@ const CreatePostForm = ({ onPostCreated }) => {
               name={currentUser?.name}
               size="h-10 w-10"
           />
-          <div className="bg-gray-800 rounded-full px-4 py-2.5 flex-1 text-gray-400 hover:bg-gray-700 transition-colors">
+          <div className="bg-black rounded-full px-4 py-2.5 flex-1 text-gray-400 hover:bg-gray-700 transition-colors border border-gray-500">
             Share your skills or what you're learning...
           </div>
         </div>
@@ -247,7 +247,7 @@ const CreatePostForm = ({ onPostCreated }) => {
             <div className="flex-1">
             <textarea
                 placeholder="Share your skills or what you're learning..."
-                className={`w-full p-3 bg-gray-800 rounded-lg text-white placeholder-gray-400 ${
+                className={`w-full p-3 bg-blackrounded-lg text-white placeholder-gray-500  border border-gray-500${
                     errors.description ? "border border-red-500" : "border-0"
                 } focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none`}
                 rows="3"
@@ -293,7 +293,7 @@ const CreatePostForm = ({ onPostCreated }) => {
                     {previewUrls.map((url, index) => (
                         <div
                             key={index}
-                            className="relative rounded-lg overflow-hidden bg-gray-800 border border-gray-700 group"
+                            className="relative rounded-lg overflow-hidden bg-black border border-gray-700 group"
                         >
                           {mediaType === "video" ? (
                               <video

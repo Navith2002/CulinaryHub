@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import { useAuth } from "../context/auth/useAuth";
 import UserAvatar from "../components/UserAvatar";
+import { getPostsByUserId } from '../api/skillSharingAPI';
 
 const suggestedUsers = [
   {
@@ -38,9 +39,10 @@ const MainLayout = ({ children, activeTab }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const { currentUser } = useAuth();
   const navigate = useNavigate();
+  const [userMedia, setUserMedia] = useState([]);
 
   const navigationItems = [
-    { id: "feed", name: "Skill Sharing", icon: <BookCheck size={20}/>, path: "/" },
+    { id: "feed", name: "Home", icon: <BookCheck size={20}/>, path: "/" },
     { id: "progress", name: "Learning Progress", icon: <BrickWallFire size={20}/>, path: "/progress" },
     { id: "plans", name: "Learning Plans", icon: <NotebookPen size={20}/>, path: "/plans" },
     { id: "communities", name: "Communities", icon: <Users size={20}/>, path: "/communities" },
@@ -53,6 +55,35 @@ const MainLayout = ({ children, activeTab }) => {
       setIsLoaded(true);
     }
   }, [currentUser]);
+
+  useEffect(() => {
+    const fetchUserMedia = async () => {
+      if (currentUser?.id && currentUser?.token) {
+        try {
+          const response = await getPostsByUserId(currentUser.id, currentUser.token);
+          // Flatten all mediaUrls from all posts
+          const media = (response.data || []).flatMap(post =>
+            (post.mediaUrls || []).map(urlString => {
+              let url = urlString;
+              let type = 'image';
+              try {
+                const mediaObj = JSON.parse(urlString);
+                url = mediaObj.dataUrl;
+                type = mediaObj.type;
+              } catch (e) {
+                if (urlString.includes('video') || urlString.includes('data:video/')) type = 'video';
+              }
+              return { url, type };
+            })
+          );
+          setUserMedia(media);
+        } catch (error) {
+          setUserMedia([]);
+        }
+      }
+    };
+    fetchUserMedia();
+  }, [currentUser?.id, currentUser?.token]);
 
   return (
       <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -70,7 +101,7 @@ const MainLayout = ({ children, activeTab }) => {
           <Header activeTab={activeTab} />
         </div>
         {/* Main content with side columns */}
-        <div className="relative z-10 pt-20 pb-10 px-4">
+        <div className="relative px-4">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Left Sidebar */}
             <motion.div
@@ -80,7 +111,7 @@ const MainLayout = ({ children, activeTab }) => {
                 transition={{ duration: 0.5 }}
             >
               {/* User Profile Card */}
-              <div className="bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-800">
+              <div className="bg-black rounded-xl shadow-lg overflow-hidden border border-gray-500">
                 {/* Cover Image */}
                 <div className="h-24 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 relative">
                   {/* Honeycomb Pattern */}
@@ -113,7 +144,7 @@ const MainLayout = ({ children, activeTab }) => {
               </div>
 
               {/* Navigation Menu */}
-              <div className="bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-800">
+              <div className="bg-black rounded-xl shadow-lg overflow-hidden border border-gray-500">
                 <div className="p-2">
                   <div className="space-y-1">
                     {navigationItems.map((item) => (
@@ -122,7 +153,7 @@ const MainLayout = ({ children, activeTab }) => {
                         to={item.path}
                         className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
                           activeTab === item.id
-                            ? "bg-gray-800 text-yellow-400"
+                            ? "bg-gray-800 text-yellow-400 border border-yellow-400"
                             : "text-gray-300 hover:bg-gray-800 hover:text-white"
                         }`}
                       >
@@ -153,7 +184,25 @@ const MainLayout = ({ children, activeTab }) => {
                 animate={{ opacity: isLoaded ? 1 : 0, x: isLoaded ? 0 : 20 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
             >
-            
+              {/* User Uploaded Media Gallery */}
+              <div className="bg-black rounded-xl shadow-lg overflow-hidden border border-gray-500 p-4 max-h-[500px] overflow-y-auto">
+                <h3 className="text-lg font-bold text-white mb-2">My Media</h3>
+                {userMedia.length === 0 ? (
+                  <p className="text-gray-400 text-sm">No media uploaded yet.</p>
+                ) : (
+                  <div className="grid grid-cols-2 gap-2">
+                    {userMedia.map((media, idx) => (
+                      <div key={idx} className="rounded-lg overflow-hidden bg-gray-900 flex items-center justify-center aspect-square">
+                        {media.type === 'video' ? (
+                          <video src={media.url} className="w-full h-full object-cover" controls />
+                        ) : (
+                          <img src={media.url} alt="User media" className="w-full h-full object-cover" />
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
             </motion.div>
           </div>
         </div>
