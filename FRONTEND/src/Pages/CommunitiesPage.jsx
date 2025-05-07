@@ -5,7 +5,7 @@ import {
   getPublicCommunities,
   getCommunitiesByMember
 } from "../api/communityAPI";
-import { Plus, Filter, Search } from "lucide-react";
+import { Plus, Search } from "lucide-react";
 import CommunityCard from "../components/CommunityCard";
 import CreateCommunityModal from "../components/CreateCommunityModal";
 import toast from "react-hot-toast";
@@ -61,15 +61,11 @@ const CommunitiesPage = () => {
   };
 
   const handleJoin = (_communityId) => {
-    // Refresh communities after a user joins
     fetchCommunities();
-    // No need for toast here as it's already shown in the CommunityCard component
   };
 
   const handleLeave = (_communityId) => {
-    // Refresh communities after a user leaves
     fetchCommunities();
-    // No need for toast here as it's already shown in the CommunityCard component
   };
 
   const filteredCommunities = communities
@@ -189,6 +185,7 @@ const CommunitiesPage = () => {
               currentUser={currentUser}
               onJoin={handleJoin}
               onLeave={handleLeave}
+              joinButtonColor="green"
             />
           ))}
         </div>
