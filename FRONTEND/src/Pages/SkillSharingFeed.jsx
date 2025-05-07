@@ -209,7 +209,8 @@ const SkillSharingFeed = () => {
                 break;
             case 'latest':
             default:
-                // Sort by most recent
+                
+                //sort by most recent
                 filteredPosts.sort((a, b) =>
                     new Date(b.createdAt) - new Date(a.createdAt)
                 );
