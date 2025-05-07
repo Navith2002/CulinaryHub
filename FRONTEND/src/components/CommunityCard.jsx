@@ -44,6 +44,7 @@ const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
       toast.error("Please log in to join communities");
       return;
     }
+    // Check if the user is already a member
 
     setLoading(true);
     try {
