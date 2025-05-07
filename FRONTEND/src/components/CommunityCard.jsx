@@ -56,6 +56,11 @@ const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
     }
   };
 
+  //
+  // Function to handle leaving the community
+  // This function is called when the user clicks the "Leave" button
+  // It sends a request to the server to remove the user from the community
+  // and updates the local state accordingly
   const handleLeave = async () => {
     if (!currentUser) return;
 
@@ -175,5 +180,6 @@ const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
     </div>
   );
 };
+///add
 
 export default CommunityCard;
