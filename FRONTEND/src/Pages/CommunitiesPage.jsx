@@ -18,7 +18,7 @@ const CommunitiesPage = () => {
   const [filter, setFilter] = useState("all"); // all, my, public
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("");
-
+//   const navigate = useNavigate();
   useEffect(() => {
     fetchCommunities();
   }, [filter, currentUser]);
