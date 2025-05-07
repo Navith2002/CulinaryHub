@@ -118,6 +118,8 @@ const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
             {community.isPrivate ? "Private community" : "Public community"}
           </span>
         </div>
+        // Display the active hours of the community
+        // If no active hours are set, display "All day"
         
         <div className="flex items-center mb-3">
           <Clock className="h-4 w-4 text-blue-500 mr-1" />
