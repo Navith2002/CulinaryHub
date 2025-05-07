@@ -55,6 +55,8 @@ const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
       setLoading(false);
     }
   };
+  // Function to handle joining the community   
+  // This function is called when the user clicks the "Join" button
 
   //
   // Function to handle leaving the community
