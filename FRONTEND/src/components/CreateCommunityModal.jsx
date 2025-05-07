@@ -99,14 +99,14 @@ const CreateCommunityModal = ({ onClose, onCommunityCreated, currentUser }) => {
               required
             >
               <option value="">Select a category</option>
-              <option value="Programming">Programming</option>
-              <option value="Data Science">Data Science</option>
-              <option value="Web Development">Web Development</option>
-              <option value="Mobile Development">Mobile Development</option>
-              <option value="DevOps">DevOps</option>
-              <option value="AI/ML">AI/ML</option>
-              <option value="Cybersecurity">Cybersecurity</option>
-              <option value="Other">Other</option>
+              <option value="Programming">Italian</option>
+              <option value="Data Science">CHineess</option>
+              <option value="Web Development">Get Connected with others</option>
+              <option value="Mobile Development">Meetups</option>
+              <option value="DevOps">Asian</option>
+              <option value="AI/ML">Certificates</option>
+              <option value="Cybersecurity">Latest Newsy</option>
+              <option value="Other">Inovations</option>
             </select>
           </div>
 

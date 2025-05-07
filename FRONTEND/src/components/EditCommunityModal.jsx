@@ -125,14 +125,14 @@ const EditCommunityModal = ({ community, onClose, onCommunityUpdated, currentUse
               required
             >
               <option value="">Select a category</option>
-              <option value="Programming">Programming</option>
-              <option value="Data Science">Data Science</option>
-              <option value="Web Development">Web Development</option>
-              <option value="Mobile Development">Mobile Development</option>
-              <option value="DevOps">DevOps</option>
-              <option value="AI/ML">AI/ML</option>
-              <option value="Cybersecurity">Cybersecurity</option>
-              <option value="Other">Other</option>
+              <option value="Programming">Italian</option>
+              <option value="Data Science">Chiness</option>
+              <option value="Web Development">Get Connected with others</option>
+              <option value="Mobile Development">Certificates</option>
+              <option value="DevOps">Asian</option>
+              <option value="AI/ML">Meet ups</option>
+              <option value="Cybersecurity">Latest News</option>
+              <option value="Other">Inovations</option>
             </select>
           </div>
 
