@@ -65,9 +65,9 @@ const LearningPlanCard = ({
           .filter(Boolean) || [];
 
   return (
-      <div className="bg-black rounded-xl shadow-lg border border-gray-800 overflow-hidden">
+      <div className="bg-black rounded-xl shadow-lg border border-gray-500 overflow-hidden">
         {/* Plan Header */}
-        <div className="p-4 flex items-center justify-between border-b border-gray-800">
+        <div className="p-4 flex items-center justify-between border-b border-gray-500">
           <div className="flex items-center space-x-3">
             <UserAvatar
                 src={plan.userProfileImage}
@@ -133,7 +133,7 @@ const LearningPlanCard = ({
                   {topicTags.map((topic, index) => (
                       <span
                           key={index}
-                          className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-yellow-500/20 text-yellow-400 border border-yellow-700/30"
+                          className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs font-medium bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
                       >
                   {topic}
                 </span>
@@ -151,7 +151,7 @@ const LearningPlanCard = ({
                 Resources
               </span>
                 </div>
-                <div className="bg-black/90 rounded-lg p-3 space-y-2 border border-gray-700">
+                <div className="bg-black/90 rounded-lg p-3 space-y-2 border border-gray-500">
                   {resourceList.map((resource, index) => (
                       <div key={index} className="text-sm text-gray-300 flex items-start">
                         <span className="text-gray-500 mr-2">•</span>
@@ -174,7 +174,7 @@ const LearningPlanCard = ({
           )}
 
           {/* Action Buttons */}
-          <div className="flex justify-between items-center mt-4 pb-2 border-b border-gray-800">
+          <div className="flex justify-between items-center mt-4 pb-2 border-b border-gray-500">
             <div className="flex space-x-1">
               <motion.button
                   className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
@@ -233,7 +233,7 @@ const LearningPlanCard = ({
 
         {/* Comments Section */}
         {showComments && (
-            <div className="p-4 bg-black/80 border-t border-gray-800">
+            <div className="p-4 bg-black/80 border-t border-gray-500">
               {/* Add Comment Form */}
               <CommentForm
                   postId={plan.id}

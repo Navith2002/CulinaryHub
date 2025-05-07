@@ -80,7 +80,7 @@ const EditLearningPlanModal = ({ plan, onClose, onPlanUpdated, token }) => {
                       type="text"
                       {...register("title", { required: "Title is required" })}
                       className={`w-full p-2 bg-black rounded-lg border ${
-                        errors.title ? "border-red-500" : "border-gray-700"
+                        errors.title ? "border-red-500" : "border-gray-500"
                       } text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none`}
                       disabled={isSubmitting}
                     />
@@ -101,7 +101,7 @@ const EditLearningPlanModal = ({ plan, onClose, onPlanUpdated, token }) => {
                       })}
                       rows="4"
                       className={`w-full p-2 bg-black rounded-lg border ${
-                        errors.description ? "border-red-500" : "border-gray-700"
+                        errors.description ? "border-red-500" : "border-gray-500"
                       } text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none`}
                       disabled={isSubmitting}
                     />
@@ -121,7 +121,7 @@ const EditLearningPlanModal = ({ plan, onClose, onPlanUpdated, token }) => {
                       type="text"
                       {...register("topics")}
                       placeholder="e.g., JavaScript, React, UI Design"
-                      className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                      className="w-full p-2 bg-gray-800 rounded-lg border border-gray-500 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none"
                     />
                     <p className="mt-1 text-xs text-gray-500">
                       Add the topics you'll be covering in this learning plan
@@ -137,7 +137,7 @@ const EditLearningPlanModal = ({ plan, onClose, onPlanUpdated, token }) => {
                       {...register("resources")}
                       placeholder="e.g., https://example.com/tutorial, Book: JavaScript Basics"
                       rows="3"
-                      className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none"
+                      className="w-full p-2 bg-gray-800 rounded-lg border border-gray-500 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none"
                     />
                     <p className="mt-1 text-xs text-gray-500">
                       Add links to articles, books, courses, or other resources
