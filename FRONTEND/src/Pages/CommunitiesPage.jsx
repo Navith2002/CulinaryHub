@@ -218,5 +218,8 @@ const CommunitiesPage = () => {
     </div>
   );
 };
+// CommunitiesPage component  
+// This component fetches and displays a list of communities.
+// It allows users to create new communities, search for existing ones,
 
 export default CommunitiesPage;
