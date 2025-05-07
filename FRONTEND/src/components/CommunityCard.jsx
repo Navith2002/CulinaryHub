@@ -10,6 +10,8 @@ const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const popupRef = useRef(null);
 
+  // Check if the user is a member of the community when the component mounts
+  
   useEffect(() => {
     const checkMembership = async () => {
       if (currentUser && community) {
