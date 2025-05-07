@@ -9,7 +9,7 @@ import { Plus, Search } from "lucide-react";
 import CommunityCard from "../components/CommunityCard";
 import CreateCommunityModal from "../components/CreateCommunityModal";
 import toast from "react-hot-toast";
-
+//import { useNavigate } from "react-router-dom";
 const CommunitiesPage = () => {
   const { currentUser } = useAuth();
   const [communities, setCommunities] = useState([]);
