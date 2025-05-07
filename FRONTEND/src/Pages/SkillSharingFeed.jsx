@@ -17,7 +17,6 @@ import EditPostModal from "../components/EditSkillPostModal";
 import ConfirmModal from "../components/ConfirmModal";
 import SkillSharingCard from "../components/SkillSharingCard";
 import {Link} from "react-router-dom";
-import { getUsersById } from "../api/profileAPI";
 
 const SkillSharingFeed = () => {
     const [posts, setPosts] = useState([]);
@@ -26,28 +25,21 @@ const SkillSharingFeed = () => {
     const [editingPost, setEditingPost] = useState(null);
     const [filterOption, setFilterOption] = useState("latest");
     const {modalState, openModal, closeModal} = useConfirmModal();
-    const [followingIds, setFollowingIds] = useState([]);
 
     const {currentUser} = useAuth();
 
     useEffect(() => {
-        // fetch all posts and following list when component mounts
-        fetchFollowingAndPosts();
+        // fetch all posts when component mounts
+        fetchPosts();
     }, []);
 
-    const fetchFollowingAndPosts = async () => {
+    const fetchPosts = async () => {
         setLoading(true);
         try {
-            // Fetch following list (assuming currentUser.followingUsers is available)
-            const following = currentUser?.followingUsers || [];
-            setFollowingIds(following);
-            // Fetch all posts
             const response = await getAllPosts(currentUser?.token);
-            // Filter posts to only those from following
-            const filteredPosts = (response.data || []).filter(post => following.includes(post.userId));
-            setPosts(filteredPosts);
+            setPosts(response.data || []);
         } catch (error) {
-            console.error("Error fetching posts or following:", error);
+            console.error("Error fetching posts:", error);
             toast.error("Failed to load posts");
         } finally {
             setLoading(false);
@@ -55,18 +47,18 @@ const SkillSharingFeed = () => {
     };
 
     const handlePostCreated = () => {
-        fetchFollowingAndPosts();
+        fetchPosts();
     };
 
     const handlePostUpdated = () => {
-        fetchFollowingAndPosts();
+        fetchPosts();
         setEditingPost(null);
     };
 
     const handleDeletePost = async (postId, isUpdate = false) => {
         if (isUpdate) {
             // This is just a post update, refresh the feed
-            fetchFollowingAndPosts();
+            fetchPosts();
             return;
         }
 
@@ -234,7 +226,7 @@ const SkillSharingFeed = () => {
         <div className="space-y-6">
             {/* Create Post Component */}
             <motion.div
-                className="bg-black rounded-xl shadow-lg overflow-hidden border border-gray-800"
+                className="bg-black rounded-xl shadow-lg overflow-hidden border border-gray-500"
                 initial={{opacity: 0, y: 20}}
                 animate={{opacity: 1, y: 0}}
                 transition={{duration: 0.3}}
@@ -246,7 +238,7 @@ const SkillSharingFeed = () => {
 
             {/* Filter Controls */}
             <motion.div
-                className="bg-black rounded-xl p-2 flex justify-between items-center shadow-lg border border-gray-800"
+                className="bg-black rounded-xl p-2 flex justify-between items-center shadow-lg border border-gray-500"
                 initial={{opacity: 0, y: 20}}
                 animate={{opacity: 1, y: 0}}
                 transition={{duration: 0.3, delay: 0.1}}
@@ -255,16 +247,84 @@ const SkillSharingFeed = () => {
           <span className="text-gray-400 px-2 hidden sm:inline">
             <Filter size={16}/>
           </span>
-                    <span className="text-gray-400 text-sm">Following Feed</span>
+                    <span className="text-gray-300 font-medium hidden sm:inline">Filter:</span>
+                </div>
+
+                <div className="flex bg-[#041409] rounded-lg p-1">
+                    <button
+                        disabled={loading}
+                        onClick={() => {
+                            setFilterOption('latest');
+                        }}
+                        className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer ${
+                            filterOption === 'latest'
+                                ? 'bg-black text-yellow-400 border border-yellow'
+                                : 'text-gray-400 hover:text-white'
+                        } ${loading ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                    >
+                        <Clock size={14}/>
+                        <span className="hidden sm:inline">Latest</span>
+                    </button>
+
+                    <button
+                        disabled={loading}
+                        onClick={() => setFilterOption('trending')}
+                        className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm transition-colors ${
+                            filterOption === 'trending'
+                                ? 'bg-black text-yellow-400 border border-yellow'
+                                : 'text-gray-400 hover:text-white'
+                        } ${loading ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                    >
+                        <TrendingUp size={14}/>
+                        <span className="hidden sm:inline">Trending</span>
+                    </button>
+
+                    <button
+                        disabled={loading}
+                        onClick={() => setFilterOption('popular')}
+                        className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-sm transition-colors cursor-pointer ${
+                            filterOption === 'popular'
+                                ? 'bg-black text-yellow-400 border border-yellow'
+                                : 'text-gray-400 hover:text-white'
+                        } ${loading ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                    >
+                        <Sparkles size={14}/>
+                        <span className="hidden sm:inline">Popular</span>
+                    </button>
                 </div>
             </motion.div>
 
-            {/* Posts List */}
+            {/* Posts Feed */}
             {loading ? (
-                <div className="text-center text-gray-400 py-10">Loading...</div>
+                <div className="flex justify-center items-center my-12">
+                    <motion.div
+                        className="relative w-12 h-12"
+                        initial={{opacity: 0}}
+                        animate={{opacity: 1}}
+                        transition={{duration: 0.3}}
+                    >
+                        <div className="absolute inset-0">
+                            <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg"
+                                 className="w-full h-full animate-spin">
+                                <path
+                                    d="M40 8L73.3 26V62L40 80L6.7 62V26L40 8Z"
+                                    fill="none"
+                                    stroke="#F5D13B"
+                                    strokeWidth="4"
+                                    strokeDasharray="200"
+                                    strokeDashoffset="150"
+                                    strokeLinecap="round"
+                                />
+                            </svg>
+                        </div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="h-4 w-4 bg-yellow-500 opacity-70 rounded-sm rotate-45"></div>
+                        </div>
+                    </motion.div>
+                </div>
             ) : posts.length === 0 ? (
                 <motion.div
-                    className="bg-[#041409] rounded-xl p-8 text-center shadow-lg border border-gray-800"
+                    className="bg-[#041409] rounded-xl p-8 text-center shadow-lg border border-gray-500"
                     initial={{opacity: 0, y: 20}}
                     animate={{opacity: 1, y: 0}}
                     transition={{duration: 0.5, delay: 0.2}}
@@ -292,10 +352,10 @@ const SkillSharingFeed = () => {
                         </div>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">
-                        No posts to show
+                        No posts yet
                     </h3>
                     <p className="text-gray-400">
-                        You are not following anyone or none of your following have posted yet.
+                        Be the first to share your skills and learning progress!
                     </p>
                 </motion.div>
             ) : (
