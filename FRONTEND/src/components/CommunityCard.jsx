@@ -93,6 +93,7 @@ const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
     setIsPopupOpen(false);
   };
 // Function to handle actions from the popup menu
+//community group implementation
   return (
     <div className="bg-white dark:bg-black rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <div className="p-5">
