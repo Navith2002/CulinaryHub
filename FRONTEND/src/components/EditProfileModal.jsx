@@ -99,7 +99,7 @@ const EditProfileModal = ({ user, onClose, onProfileUpdated, token }) => {
   return (
       <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50">
         <motion.div
-            className="bg-gray-900 rounded-xl shadow-xl w-full max-w-md m-4 overflow-hidden border border-gray-800"
+            className="bg-black rounded-xl shadow-xl w-full max-w-md m-4 overflow-hidden border border-gray-500"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
@@ -211,7 +211,7 @@ const EditProfileModal = ({ user, onClose, onProfileUpdated, token }) => {
                     value={skillInput}
                     onChange={(e) => setSkillInput(e.target.value)}
                     className="flex-grow p-2 bg-gray-800 rounded-l-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none"
-                    placeholder="Add a skill (e.g., JavaScript, Design)"
+                    placeholder="Add a skill (e.g., Italian, Vegan)"
                     disabled={isSubmitting}
                     onKeyDown={(e) => {
                       if (e.key === "Enter") {

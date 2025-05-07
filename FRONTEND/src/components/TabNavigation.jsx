@@ -19,7 +19,7 @@ const TabNavigation = ({ activeTab = "feed" }) => {
   };
 
   const tabs = [
-    { id: "feed", name: "Skill Sharing", icon: <Home size={18} /> },
+    { id: "feed", name: "Home", icon: <Home size={18} /> },
     { id: "progress", name: "Learning Progress", icon: <Activity size={18} /> },
     { id: "plans", name: "Learning Plans", icon: <FileText size={18} /> },
     { id: "communities", name: "Communities", icon: <Users size={18} /> },

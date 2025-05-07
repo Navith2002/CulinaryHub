@@ -83,9 +83,9 @@ const ProfileLayout = ({
                     <span>Back</span>
                 </motion.button>
                 {/* Profile Header Card */}
-                <div className="bg-gray-900 rounded-xl shadow-lg border border-gray-800 overflow-hidden">
+                <div className="bg-black rounded-xl shadow-lg border border-gray-500 overflow-hidden">
                     {/* Cover Photo - Hexagon Pattern */}
-                    <div className="h-48 bg-gradient-to-r from-gray-800 to-gray-900 relative">
+                    <div className="h-48 bg-gradient-to-r from-black to-yellow-500 relative">
                         {/* Honeycomb Pattern */}
                         <div className="absolute inset-0 opacity-20" style={{
                             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15L30 0z' fill-rule='evenodd' fill='%23F5D13B' fill-opacity='0.2'/%3E%3C/svg%3E")`,
@@ -100,7 +100,7 @@ const ProfileLayout = ({
                     {/* Profile Info Section */}
                     <div className="p-6 relative">
                         {/* Avatar - Positioned to overlap the cover photo */}
-                        <div className="absolute -top-20 left-6 border-4 border-gray-900 rounded-full">
+                        <div className="absolute -top-20 left-6 border-4 border-gray-500 rounded-full">
                             <UserAvatar
                                 src={profileUser?.profileImage}
                                 alt={profileUser?.name}
@@ -157,7 +157,7 @@ const ProfileLayout = ({
 
                     {/* Profile Details Section */}
                     {hasProfileDetails && (
-                        <div className="px-6 pb-6 border-t border-gray-800 pt-4 mt-2">
+                        <div className="px-6 pb-6 border-t border-gray-500 pt-4 mt-2">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {hasBio && (
                                     <div className="md:col-span-2">
