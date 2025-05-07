@@ -194,7 +194,8 @@ const SkillSharingFeed = () => {
 
         switch (filterOption) {
             case 'trending':
-                // Sort by most likes
+                
+                //Sort by most comment
                 filteredPosts.sort((a, b) =>
                     (b.likes?.length || 0) - (a.likes?.length || 0)
                 );
