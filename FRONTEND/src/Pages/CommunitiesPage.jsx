@@ -77,6 +77,7 @@ const CommunitiesPage = () => {
       category ? community.category === category : true
     );
 
+    // Define the categories for filtering communities
   const categories = [
     "Programming",
     "Data Science",
