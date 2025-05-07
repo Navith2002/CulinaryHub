@@ -11,7 +11,7 @@ const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
   const popupRef = useRef(null);
 
   // Check if the user is a member of the community when the component mounts
-  
+
   useEffect(() => {
     const checkMembership = async () => {
       if (currentUser && community) {
@@ -33,6 +33,7 @@ const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
         setIsPopupOpen(false);
       }
     };
+    // Close the popup if the user clicks outside of it
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
