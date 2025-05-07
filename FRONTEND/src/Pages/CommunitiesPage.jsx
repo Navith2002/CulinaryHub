@@ -126,7 +126,7 @@ const CommunitiesPage = () => {
               />
             </div>
           </div>
-          
+
 
           <div className="flex flex-col md:flex-row gap-2">
             <select
@@ -168,7 +168,7 @@ const CommunitiesPage = () => {
                     ? "bg-blue-600 text-white"
                     : "bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
                 }`}
-                //  //  
+                //  //
                 //new buuton
               >
                 Public
@@ -183,7 +183,7 @@ const CommunitiesPage = () => {
           <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
         </div>
       ) : filteredCommunities.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-col space-y-4">
           {filteredCommunities.map(community => (
             <CommunityCard
               key={community.id}
@@ -191,6 +191,7 @@ const CommunitiesPage = () => {
               currentUser={currentUser}
               onJoin={handleJoin}
               onLeave={handleLeave}
+              onUpdate={fetchCommunities}
               joinButtonColor="green"
             />
           ))}
@@ -224,7 +225,7 @@ const CommunitiesPage = () => {
     </div>
   );
 };
-// CommunitiesPage component  
+// CommunitiesPage component
 // This component fetches and displays a list of communities.
 // It allows users to create new communities, search for existing ones,
 

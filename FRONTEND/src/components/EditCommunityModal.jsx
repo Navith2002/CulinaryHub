@@ -9,6 +9,7 @@ const EditCommunityModal = ({ community, onClose, onCommunityUpdated, currentUse
     description: community.description || "",
     category: community.category || "",
     isPrivate: community.isPrivate || false, // This matches the Java model property name
+    creatorId: currentUser?.id || "", // Include the current user's ID for permission check
   });
   const [loading, setLoading] = useState(false);
 
@@ -28,13 +29,40 @@ const EditCommunityModal = ({ community, onClose, onCommunityUpdated, currentUse
       return;
     }
 
+    if (!currentUser) {
+      toast.error("You must be logged in to update a community");
+      return;
+    }
+
+    // Make sure creatorId is set to the current user's ID
+    const updatedFormData = {
+      ...formData,
+      creatorId: currentUser.id
+    };
+
     setLoading(true);
     try {
-      await updateCommunity(community.id, formData, currentUser?.token);
+      await updateCommunity(community.id, updatedFormData, currentUser.token);
+      toast.success("Community updated successfully!");
       if (onCommunityUpdated) onCommunityUpdated();
+      onClose(); // Close the modal after successful update
     } catch (error) {
       console.error("Error updating community:", error);
-      toast.error("Failed to update community");
+
+      // Provide more detailed error messages
+      if (error.response) {
+        if (error.response.status === 403) {
+          toast.error("You don't have permission to update this community");
+        } else if (error.response.data) {
+          toast.error(`Failed to update community: ${error.response.data}`);
+        } else {
+          toast.error(`Failed to update community: ${error.response.status}`);
+        }
+      } else if (error.request) {
+        toast.error("Network error. Please check your connection and try again.");
+      } else {
+        toast.error("Failed to update community");
+      }
     } finally {
       setLoading(false);
     }
