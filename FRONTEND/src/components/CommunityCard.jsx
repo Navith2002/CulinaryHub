@@ -114,6 +114,8 @@ const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
           ) : (
             <Unlock className="h-4 w-4 text-green-500 mr-1" />
           )}
+          //
+          // Display the privacy status of the community
           <span className="text-sm text-gray-600 dark:text-gray-300">
             {community.isPrivate ? "Private community" : "Public community"}
           </span>
