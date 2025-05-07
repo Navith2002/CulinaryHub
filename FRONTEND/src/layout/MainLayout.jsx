@@ -40,7 +40,7 @@ const MainLayout = ({ children, activeTab }) => {
   const navigate = useNavigate();
 
   const navigationItems = [
-    { id: "feed", name: "Skill Sharing", icon: <BookCheck size={20}/>, path: "/" },
+    { id: "feed", name: "Home", icon: <BookCheck size={20}/>, path: "/" },
     { id: "progress", name: "Learning Progress", icon: <BrickWallFire size={20}/>, path: "/progress" },
     { id: "plans", name: "Learning Plans", icon: <NotebookPen size={20}/>, path: "/plans" },
     { id: "communities", name: "Communities", icon: <Users size={20}/>, path: "/communities" },
@@ -70,7 +70,7 @@ const MainLayout = ({ children, activeTab }) => {
           <Header activeTab={activeTab} />
         </div>
         {/* Main content with side columns */}
-        <div className="relative z-10 pt-20 pb-10 px-4">
+        <div className="relative px-4">
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-6">
             {/* Left Sidebar */}
             <motion.div
@@ -80,7 +80,7 @@ const MainLayout = ({ children, activeTab }) => {
                 transition={{ duration: 0.5 }}
             >
               {/* User Profile Card */}
-              <div className="bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-800">
+              <div className="bg-black rounded-xl shadow-lg overflow-hidden border border-gray-500">
                 {/* Cover Image */}
                 <div className="h-24 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 relative">
                   {/* Honeycomb Pattern */}
@@ -113,7 +113,7 @@ const MainLayout = ({ children, activeTab }) => {
               </div>
 
               {/* Navigation Menu */}
-              <div className="bg-gray-900 rounded-xl shadow-lg overflow-hidden border border-gray-800">
+              <div className="bg-black rounded-xl shadow-lg overflow-hidden border border-gray-500">
                 <div className="p-2">
                   <div className="space-y-1">
                     {navigationItems.map((item) => (
@@ -122,7 +122,7 @@ const MainLayout = ({ children, activeTab }) => {
                         to={item.path}
                         className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
                           activeTab === item.id
-                            ? "bg-gray-800 text-yellow-400"
+                            ? "bg-black text-yellow-400 border border-yellow-400"
                             : "text-gray-300 hover:bg-gray-800 hover:text-white"
                         }`}
                       >
