@@ -87,6 +87,8 @@ const CommunitiesPage = () => {
     "Cybersecurity",
     "Other"
   ];
+  // Define the categories for filtering communities  /
+  // This is a static list, but you can fetch it from an API if needed
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -123,6 +125,7 @@ const CommunitiesPage = () => {
               />
             </div>
           </div>
+          
 
           <div className="flex flex-col md:flex-row gap-2">
             <select
