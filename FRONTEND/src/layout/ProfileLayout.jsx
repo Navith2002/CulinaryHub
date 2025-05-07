@@ -157,7 +157,7 @@ const ProfileLayout = ({
 
                     {/* Profile Details Section */}
                     {hasProfileDetails && (
-                        <div className="px-6 pb-6 border-t border-gray-500 pt-4 mt-2">
+                        <div className="bg-black px-6 pb-6 border-t border-gray-500 pt-4 mt-2">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {hasBio && (
                                     <div className="md:col-span-2">

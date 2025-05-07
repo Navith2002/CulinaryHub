@@ -690,7 +690,7 @@ const ProfilePage = () => {
         return (
             <div className="min-h-screen flex items-center justify-center bg-black p-4">
                 <div
-                    className="max-w-md w-full bg-black rounded-xl shadow-lg overflow-hidden border border-gray-500 p-8 text-center">
+                    className="max-w-md w-full bg-black rounded-xl shadow-lg overflow-hidden border border-yellow-400 p-8 text-center">
                     <div className="mb-6 flex justify-center">
                         <div className="relative w-16 h-16">
                             <svg
@@ -780,10 +780,10 @@ const ProfilePage = () => {
             onShowFollowing={handleShowFollowing}
         >
             {/* Content Tabs */}
-            <div className="bg-black rounded-xl shadow-lg border border-gray-800 overflow-hidden mb-6">
+            <div className="bg-black rounded-xl shadow-lg border border-gray-500 overflow-hidden mb-6">
                 <div className="grid grid-cols-3 gap-px bg-gray-800">
                     {[
-                        {id: "posts", label: "Skill Sharing", icon: <Image size={18}/>},
+                        {id: "posts", label: "My Posts ", icon: <Image size={18}/>},
                         {id: "progress", label: "Progress", icon: <BookOpen size={18}/>},
                         {id: "plans", label: "Plans", icon: <FileText size={18}/>}
                     ].map((tab) => (
@@ -792,8 +792,8 @@ const ProfilePage = () => {
                             onClick={() => setActiveTab(tab.id)}
                             className={`relative py-4 text-center transition-colors cursor-pointer ${
                                 activeTab === tab.id
-                                    ? "bg-gray-900 text-yellow-400 font-medium"
-                                    : "bg-gray-900 text-gray-400 hover:text-white"
+                                    ? "bg-black text-yellow-400 font-medium"
+                                    : "bg-black text-gray-400 hover:text-white"
                             }`}
                         >
                             <div className="flex flex-col items-center">
