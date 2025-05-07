@@ -201,15 +201,15 @@ const SkillSharingFeed = () => {
                 );
                 break;
             case 'popular':
-                // Sort by most comments
+                
+                //sort by most comments
                 filteredPosts.sort((a, b) =>
                     (b.comments?.length || 0) - (a.comments?.length || 0)
                 );
                 break;
             case 'latest':
             default:
-            
-                // sort by most recent
+                // Sort by most recent
                 filteredPosts.sort((a, b) =>
                     new Date(b.createdAt) - new Date(a.createdAt)
                 );
