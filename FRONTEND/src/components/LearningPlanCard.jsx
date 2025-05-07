@@ -65,7 +65,7 @@ const LearningPlanCard = ({
           .filter(Boolean) || [];
 
   return (
-      <div className="bg-gray-900 rounded-xl shadow-lg border border-gray-800 overflow-hidden">
+      <div className="bg-black rounded-xl shadow-lg border border-gray-800 overflow-hidden">
         {/* Plan Header */}
         <div className="p-4 flex items-center justify-between border-b border-gray-800">
           <div className="flex items-center space-x-3">
@@ -94,7 +94,7 @@ const LearningPlanCard = ({
               <div className="flex space-x-1">
                 <motion.button
                     onClick={() => onEdit(plan)}
-                    className="p-1.5 rounded-full hover:bg-gray-800 text-gray-400 hover:text-yellow-400 transition-colors cursor-pointer"
+                    className="p-1.5 rounded-full hover:bg-black text-gray-400 hover:text-yellow-400 transition-colors cursor-pointer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     aria-label="Edit plan"
@@ -103,7 +103,7 @@ const LearningPlanCard = ({
                 </motion.button>
                 <motion.button
                     onClick={handleDeleteClick}
-                    className="p-1.5 rounded-full hover:bg-gray-800 text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
+                    className="p-1.5 rounded-full hover:bg-black text-gray-400 hover:text-red-500 transition-colors cursor-pointer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     aria-label="Delete plan"
@@ -151,7 +151,7 @@ const LearningPlanCard = ({
                 Resources
               </span>
                 </div>
-                <div className="bg-gray-800/70 rounded-lg p-3 space-y-2 border border-gray-700">
+                <div className="bg-black/90 rounded-lg p-3 space-y-2 border border-gray-700">
                   {resourceList.map((resource, index) => (
                       <div key={index} className="text-sm text-gray-300 flex items-start">
                         <span className="text-gray-500 mr-2">•</span>
@@ -180,7 +180,7 @@ const LearningPlanCard = ({
                   className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                       isLikedByUser
                           ? "text-red-500"
-                          : "text-gray-400 hover:bg-gray-800 hover:text-white"
+                          : "text-gray-400 hover:bg-black hover:text-white"
                   }`}
                   onClick={() => onLike(plan.id)}
                   whileHover={{ scale: 1.05 }}
@@ -192,7 +192,7 @@ const LearningPlanCard = ({
               </motion.button>
 
               <motion.button
-                  className="flex items-center space-x-1 px-3 py-1.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white transition-colors cursor-pointer"
+                  className="flex items-center space-x-1 px-3 py-1.5 rounded-lg text-gray-400 hover:bg-black hover:text-white transition-colors cursor-pointer"
                   onClick={() => setShowComments(!showComments)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -208,7 +208,7 @@ const LearningPlanCard = ({
                   className={`flex items-center px-3 py-1.5 rounded-lg transition-colors cursor-pointer ${
                       saved
                           ? "text-yellow-400"
-                          : "text-gray-400 hover:bg-gray-800 hover:text-white"
+                          : "text-gray-400 hover:bg-black hover:text-white"
                   }`}
                   onClick={handleSave}
                   whileHover={{ scale: 1.05 }}
@@ -219,7 +219,7 @@ const LearningPlanCard = ({
               </motion.button>
 
               <motion.button
-                  className="flex items-center px-3 py-1.5 rounded-lg text-gray-400 hover:bg-gray-800 hover:text-white transition-colors cursor-pointer"
+                  className="flex items-center px-3 py-1.5 rounded-lg text-gray-400 hover:bg-black hover:text-white transition-colors cursor-pointer"
                   onClick={handleShare}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -233,7 +233,7 @@ const LearningPlanCard = ({
 
         {/* Comments Section */}
         {showComments && (
-            <div className="p-4 bg-gray-800/50 border-t border-gray-800">
+            <div className="p-4 bg-black/80 border-t border-gray-800">
               {/* Add Comment Form */}
               <CommentForm
                   postId={plan.id}
@@ -242,7 +242,7 @@ const LearningPlanCard = ({
               />
 
               {/* Comments List */}
-              <div className="space-y-3 max-h-64 overflow-y-auto mt-4 scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-transparent pr-2">
+              <div className="space-y-3 max-h-64 overflow-y-auto mt-4 scrollbar-thin scrollbar-thumb-black scrollbar-track-transparent pr-2">
                 {plan.comments && plan.comments.length > 0 ? (
                     plan.comments.map((comment) => (
                         <Comment

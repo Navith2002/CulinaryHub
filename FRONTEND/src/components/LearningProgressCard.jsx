@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const STATUS_OPTIONS = {
   not_started: {
     name: "Not Started",
-    color: "bg-gray-800 text-gray-300 border border-gray-700"
+    color: "bg-black text-gray-300 border border-gray-700"
   },
   in_progress: {
     name: "In Progress",
@@ -74,7 +74,7 @@ const LearningProgressCard = ({
   };
 
   return (
-      <div className="bg-gray-900 rounded-xl shadow-lg border border-gray-800 overflow-hidden">
+      <div className="bg-black rounded-xl shadow-lg border border-gray-800 overflow-hidden">
         {/* Progress Header */}
         <div className="p-4 flex items-center justify-between border-b border-gray-800">
           <div className="flex items-center space-x-3">
@@ -139,7 +139,7 @@ const LearningProgressCard = ({
               <p className="text-gray-300 mb-3">{progress.description}</p>
           )}
 
-          <div className="bg-gray-800/70 rounded-lg p-4 mb-4 space-y-3 border border-gray-700">
+          <div className="bg-black/70 rounded-lg p-4 mb-4 space-y-3 border border-gray-700">
             {progress.tutorialName && (
                 <div className="flex flex-wrap">
                   <span className="text-yellow-400 font-medium w-28">Tutorial:</span>

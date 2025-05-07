@@ -135,7 +135,7 @@ const EditLearningProgressModal = ({
   return (
       <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50">
         <motion.div
-            className="bg-gray-900 rounded-xl shadow-xl w-full max-w-md m-4 overflow-hidden border border-gray-800"
+            className="bg-black rounded-xl shadow-xl w-full max-w-md m-4 overflow-hidden border border-gray-800"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
@@ -150,7 +150,7 @@ const EditLearningProgressModal = ({
             </h3>
             <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-white transition-colors rounded-full p-1 hover:bg-gray-800 cursor-pointer"
+                className="text-gray-400 hover:text-white transition-colors rounded-full p-1 hover:bg-black cursor-pointer"
             >
               <X size={20} />
             </button>
@@ -167,7 +167,7 @@ const EditLearningProgressModal = ({
                   <select
                       value={selectedTemplate}
                       onChange={handleTemplateChange}
-                      className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none appearance-none pl-8 pr-4"
+                      className="w-full p-2 bg-black rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none appearance-none pl-8 pr-4"
                   >
                     {TEMPLATES.map((template) => (
                         <option key={template.id} value={template.id}>
@@ -190,7 +190,7 @@ const EditLearningProgressModal = ({
                   <select
                       value={selectedStatus}
                       onChange={handleStatusChange}
-                      className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none appearance-none pl-8 pr-4"
+                      className="w-full p-2 bg-black rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none appearance-none pl-8 pr-4"
                   >
                     {STATUS_OPTIONS.map((status) => (
                         <option key={status.id} value={status.id} className={status.color}>
@@ -218,7 +218,7 @@ const EditLearningProgressModal = ({
                         type="text"
                         {...register("title", { required: "Title is required" })}
                         placeholder="Give your progress update a clear title"
-                        className={`w-full p-2 bg-gray-800 rounded-lg border ${
+                        className={`w-full p-2 bg-black rounded-lg border ${
                             errors.title ? "border-red-500" : "border-gray-700"
                         } text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none`}
                     />
@@ -243,7 +243,7 @@ const EditLearningProgressModal = ({
                         })}
                         placeholder="Describe what you've learned or accomplished"
                         rows="3"
-                        className={`w-full p-2 bg-gray-800 rounded-lg border ${
+                        className={`w-full p-2 bg-black rounded-lg border ${
                             errors.description ? "border-red-500" : "border-gray-700"
                         } text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none`}
                     />
@@ -268,7 +268,7 @@ const EditLearningProgressModal = ({
                               : false,
                         })}
                         placeholder="Name of the tutorial you completed"
-                        className={`w-full p-2 bg-gray-800 rounded-lg border ${
+                        className={`w-full p-2 bg-black rounded-lg border ${
                             errors.tutorialName ? "border-red-500" : "border-gray-700"
                         } text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none`}
                     />
@@ -293,7 +293,7 @@ const EditLearningProgressModal = ({
                               : false,
                         })}
                         placeholder="Name of your project"
-                        className={`w-full p-2 bg-gray-800 rounded-lg border ${
+                        className={`w-full p-2 bg-black rounded-lg border ${
                             errors.projectName ? "border-red-500" : "border-gray-700"
                         } text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none`}
                     />
@@ -314,7 +314,7 @@ const EditLearningProgressModal = ({
                         type="text"
                         {...register("skillsLearned")}
                         placeholder="Skills or technologies (comma-separated)"
-                        className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none"
+                        className="w-full p-2 bg-black rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none"
                     />
                     <p className="text-xs text-gray-500 mt-1">Example: JavaScript, React, Node.js</p>
                   </div>
@@ -329,7 +329,7 @@ const EditLearningProgressModal = ({
                         {...register("challenges")}
                         placeholder="What challenges did you encounter and how did you overcome them?"
                         rows="2"
-                        className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none"
+                        className="w-full p-2 bg-black rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none"
                     />
                   </div>
               )}
@@ -343,7 +343,7 @@ const EditLearningProgressModal = ({
                         {...register("nextSteps")}
                         placeholder="What are your next steps or goals?"
                         rows="2"
-                        className="w-full p-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none"
+                        className="w-full p-2 bg-black rounded-lg border border-gray-700 text-white focus:ring-2 focus:ring-yellow-500 focus:outline-none resize-none"
                     />
                   </div>
               )}
@@ -353,7 +353,7 @@ const EditLearningProgressModal = ({
               <motion.button
                   type="button"
                   onClick={onClose}
-                  className="px-4 py-2 bg-gray-800 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors cursor-pointer"
+                  className="px-4 py-2 bg-black text-gray-300 rounded-lg hover:bg-gray-900 transition-colors cursor-pointer"
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   disabled={isSubmitting}
