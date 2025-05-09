@@ -94,7 +94,7 @@ const CommunityCard = ({ community, currentUser, onJoin, onLeave }) => {
   };
 // Function to handle actions from the popup menu
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <div className="bg-white dark:bg-black rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
       <div className="p-5">
         <div className="flex justify-between items-start mb-3">
           <Link to={`/communities/${community.id}`} className="hover:underline">
