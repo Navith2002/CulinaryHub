@@ -87,7 +87,7 @@ const PostCard = ({
           <button
             className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg transition-colors ${
               isLikedByUser
-                ? "text-red-500 bg-yellow-50 bg-opacity-40"
+                ? "text-red-500 bg-red-50 bg-opacity-40"
                 : "text-gray-600 hover:bg-gray-100 hover:bg-opacity-30"
             }`}
             onClick={() => onLike(post.id)}

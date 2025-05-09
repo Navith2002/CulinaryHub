@@ -170,7 +170,7 @@ const EditPostModal = ({ post, onClose, onPostUpdated, token }) => {
   };
 
   return (
-      <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50 ">
+      <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex justify-center items-center z-50">
         <motion.div
             className="bg-black rounded-xl shadow-2xl w-full max-w-md m-4 overflow-hidden border border-gray-800"
             initial={{ opacity: 0, scale: 0.9 }}

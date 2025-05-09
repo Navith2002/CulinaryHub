@@ -65,7 +65,7 @@ export const CommentForm = ({ postId, onAddComment, currentUser }) => {
           <input
               type="text"
               placeholder="Add a comment..."
-              className={`w-full px-4 py-2 pr-10 rounded-lg border-0 bg-gray-800 text-white placeholder-gray-500 focus:ring-2 focus:ring-yellow-400 ${
+              className={`w-full px-4 py-2 pr-10 rounded-lg border-0 bg-gray-800 text-white placeholder-gray-500 focus:ring-2 focus:ring-red-500 ${
                   errors.commentText ? "focus:ring-red-500" : ""
               } focus:outline-none`}
               {...register("commentText", { required: true })}
@@ -73,7 +73,7 @@ export const CommentForm = ({ postId, onAddComment, currentUser }) => {
           />
           <motion.button
               type="submit"
-              className="absolute right-3 text-yellow-400 hover:text-red-400 disabled:text-gray-600 cursor-pointer"
+              className="absolute right-3 text-red-500 hover:text-red-400 disabled:text-gray-600 cursor-pointer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               disabled={isSubmitting}
